@@ -6,22 +6,16 @@ using System.Threading.Tasks;
 
 namespace ProjectMars.Profile
 {
-    internal class Education
-    {
-        public void EditEducation()
-        {
+    //internal class Education
+   // {
+        //public void EditEducation()
+       // {
 
 
 
 
 
-        }
-
-
-
-
-
-
+       // }
 
 
 
@@ -43,5 +37,11 @@ namespace ProjectMars.Profile
 
 
 
-    }
+
+
+
+
+
+
+   // }
 }

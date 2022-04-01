@@ -10,61 +10,56 @@ using System.Threading.Tasks;
 
 namespace ProjectMars.Profile
 {
-    internal class Profile_Test: CommonDriver
+    //internal class Profile_Test: CommonDriver
 
-    {
+   // {
         
-        public void LoginFunction()
-        {
+       // public void LoginFunction()
+        //{
             // open chrome driver
 
-            IWebDriver driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
+            //IWebDriver driver = new ChromeDriver();
+            //driver.Manage().Window.Maximize();
 
             // Login page object Initialization and definition
             
 
-            LoginPage loginpageObj = new LoginPage();
-            loginpageObj.Loginsteps(driver);
+            //LoginPage loginpageObj = new LoginPage();
+            //loginpageObj.Loginsteps(driver);
 
             //home page object initialization and definition
-            HomePage homepageObj = new HomePage();
-            homepageObj.Gotoprofilehomepage(driver);
+           // HomePage homepageObj = new HomePage();
+           // homepageObj.Gotoprofilehomepage(driver);
 
 
 
 
-        }
+       // }
 
-        public void EditLanguages()
-        {
-
-
-
-        }
-
-        public void EditSkills()
-        {
+        //public void EditLanguages()
+        //{
 
 
 
-        }
+        //}
 
-        public void EditEducation()
-        {
-
-        }
-
-        public void EditCertifications()
-        {
-
-
-        }
+       // public void EditSkills()
+        //{
 
 
 
+       // }
 
+       // public void EditEducation()
+       // {
 
+       // }
+
+       // public void EditCertifications()
+       // {
+
+    
+        //}
 
 
 
@@ -85,5 +80,10 @@ namespace ProjectMars.Profile
 
 
 
-    }
+
+
+
+
+
+    //}
 }

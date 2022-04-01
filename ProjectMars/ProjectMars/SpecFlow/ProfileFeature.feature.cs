@@ -132,16 +132,16 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 14
- testRunner.Given("Logiin to the Mars web portal with valid credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("Loggin to the Mars web portal with valid credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 15
- testRunner.And("navigate to profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("navigate to profile home page to update the languages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 16
- testRunner.When(string.Format("I add and delete the \'{0}\'", languages), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I add and delete the languages \'{0}\' on the profile page", languages), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 17
- testRunner.Then(string.Format("I could see the updated \'{0}\' on profile home page", languages), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("I could see the updated languages \'{0}\' on profile home page", languages), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -173,13 +173,13 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("Logiin to the Mars web portal with valid credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 27
- testRunner.And("navigate to profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("navigate to profile home page to update the Skills", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 28
- testRunner.When(string.Format("I add and delete the \'{0}\'", skills), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I add and delete the Skills \'{0}\' on the profile page", skills), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 29
- testRunner.Then(string.Format("I could see the updated \'{0}\' on profile home page", skills), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("I could see the updated Skills \'{0}\' on profile home page", skills), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -212,13 +212,13 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("Logiin to the Mars web portal with valid credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 38
- testRunner.And("navigate to profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("navigate to profile home page to update the Education", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 39
- testRunner.When(string.Format("I add and delete the \'{0}\'\'{1}\'", college, degree), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I add and delete the College and Degree \'{0}\'\'{1}\' on the profile page", college, degree), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 40
- testRunner.Then(string.Format("I could see the updated \'{0}\'\'{1}\' on profile home page", college, degree), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("I could see the updated College and Degree \'{0}\'\'{1}\' on profile home page", college, degree), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -251,13 +251,14 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("Logiin to the Mars web portal with valid credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 49
- testRunner.And("navigate to profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("navigate to profile home page to update the Certifications", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 50
- testRunner.When(string.Format("I add and delete the \'{0}\'\'{1}\'", certificate, certified), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I add and delete the Certificates and Certified \'{0}\'\'{1}\' on the profile page", certificate, certified), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 51
- testRunner.Then(string.Format("I could see the updated \'{0}\'\'{1}\' on profile home page", certificate, certified), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("I could see the updated Certificates and Certified \'{0}\'\'{1}\' on profile home pag" +
+                            "e", certificate, certified), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

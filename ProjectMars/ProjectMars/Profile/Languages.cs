@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ProjectMars.Profile
 {
-    internal class Languages
-    {
-        public void EditLanguages()
-        {
+    //internal class Languages
+   // {
+        //public void EditLanguages()
+       // {
 
 
 
@@ -17,15 +17,7 @@ namespace ProjectMars.Profile
 
 
 
-        }
-
-
-
-
-
-
-
-
+      //  }
 
 
 
@@ -35,5 +27,13 @@ namespace ProjectMars.Profile
 
 
 
-    }
+
+
+
+
+
+
+
+
+   // }
 }

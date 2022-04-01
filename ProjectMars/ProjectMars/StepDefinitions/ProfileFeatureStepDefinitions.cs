@@ -36,14 +36,14 @@ namespace ProjectMars.StepDefinitions
             throw new PendingStepException();
         }
 
-        [When(@"I add and delete the languages '([^']*)' on the profile page")]
-        public void WhenIAddAndDeleteTheLanguagesOnTheProfilePage(string english)
+        [When(@"I add,edit and delete the languages '([^']*)','([^']*)' on the profile page")]
+        public void WhenIAddEditAndDeleteTheLanguagesOnTheProfilePage(string english, string hindi)
         {
             throw new PendingStepException();
         }
 
-        [Then(@"I could see the updated languages '([^']*)' on profile home page")]
-        public void ThenICouldSeeTheUpdatedLanguagesOnProfileHomePage(string english)
+        [Then(@"I could see the updated languages '([^']*)','([^']*)' on profile home page")]
+        public void ThenICouldSeeTheUpdatedLanguagesOnProfileHomePage(string english, string hindi)
         {
             throw new PendingStepException();
         }
@@ -60,14 +60,14 @@ namespace ProjectMars.StepDefinitions
             throw new PendingStepException();
         }
 
-        [When(@"I add and delete the Skills '([^']*)' on the profile page")]
-        public void WhenIAddAndDeleteTheSkillsOnTheProfilePage(string painting)
+        [When(@"I add,edit and delete the Skills '([^']*)','([^']*)' on the profile page")]
+        public void WhenIAddEditAndDeleteTheSkillsOnTheProfilePage(string painting, string cricket)
         {
             throw new PendingStepException();
         }
 
-        [Then(@"I could see the updated Skills '([^']*)' on profile home page")]
-        public void ThenICouldSeeTheUpdatedSkillsOnProfileHomePage(string painting)
+        [Then(@"I could see the updated Skills '([^']*)','([^']*)' on profile home page")]
+        public void ThenICouldSeeTheUpdatedSkillsOnProfileHomePage(string painting, string cricket)
         {
             throw new PendingStepException();
         }
@@ -78,14 +78,14 @@ namespace ProjectMars.StepDefinitions
             throw new PendingStepException();
         }
 
-        [When(@"I add and delete the College and Degree '([^']*)''([^']*)' on the profile page")]
-        public void WhenIAddAndDeleteTheCollegeAndDegreeOnTheProfilePage(string aBC, string p1)
+        [When(@"I add,edit and delete the College and Degree '([^']*)','([^']*)','([^']*)','([^']*)' on the profile page")]
+        public void WhenIAddEditAndDeleteTheCollegeAndDegreeOnTheProfilePage(string addCollege, string addDegree, string editCollege, string editDegree)
         {
             throw new PendingStepException();
         }
 
-        [Then(@"I could see the updated College and Degree '([^']*)''([^']*)' on profile home page")]
-        public void ThenICouldSeeTheUpdatedCollegeAndDegreeOnProfileHomePage(string aBC, string p1)
+        [Then(@"I could see the updated College and Degree '([^']*)','([^']*)','([^']*)','([^']*)' on profile home page")]
+        public void ThenICouldSeeTheUpdatedCollegeAndDegreeOnProfileHomePage(string addCollege, string addDegree, string editCollege, string editDegree)
         {
             throw new PendingStepException();
         }
@@ -96,14 +96,14 @@ namespace ProjectMars.StepDefinitions
             throw new PendingStepException();
         }
 
-        [When(@"I add and delete the Certificates and Certified '([^']*)''([^']*)' on the profile page")]
-        public void WhenIAddAndDeleteTheCertificatesAndCertifiedOnTheProfilePage(string baking, string bakers)
+        [When(@"I add,edit and delete the Certificates and Certified '([^']*)','([^']*)','([^']*)','([^']*)' on the profile page")]
+        public void WhenIAddEditAndDeleteTheCertificatesAndCertifiedOnTheProfilePage(string addCertificate, string addCertified, string editCertificate, string editCertified)
         {
             throw new PendingStepException();
         }
 
-        [Then(@"I could see the updated Certificates and Certified '([^']*)''([^']*)' on profile home page")]
-        public void ThenICouldSeeTheUpdatedCertificatesAndCertifiedOnProfileHomePage(string baking, string bakers)
+        [Then(@"I could see the updated Certificates and Certified '([^']*)','([^']*)','([^']*)','([^']*)' on profile home page")]
+        public void ThenICouldSeeTheUpdatedCertificatesAndCertifiedOnProfileHomePage(string addCertificate, string addCertified, string editCertificate, string editCertified)
         {
             throw new PendingStepException();
         }

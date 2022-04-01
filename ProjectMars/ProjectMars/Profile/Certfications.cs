@@ -6,21 +6,19 @@ using System.Threading.Tasks;
 
 namespace ProjectMars.Profile
 {
-    internal class Certfications
-    {
+    //internal class Certfications
+    //{
 
-        public void Certificationspage()
-        {
-
-
+        //public void Certificationspage()
+        //{
 
 
 
 
 
-        }
 
 
+       // }
 
 
 
@@ -34,5 +32,7 @@ namespace ProjectMars.Profile
 
 
 
-    }
+
+
+   // }
 }
