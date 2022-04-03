@@ -89,11 +89,80 @@ namespace ProjectMars
 
             //check if seller can add Languages
 
+            //search for language button to add new languages in profile page
+
+            IWebElement Languagesbutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.top.attached.tabular.menu > a:nth-child(1)"));
+            Languagesbutton.Click();
+
+            //search for Addnew button
+
+            IWebElement Addnewbuttonlanguage = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.active.tooltip-target > div > div.twelve.wide.column.scrollTable > div > table > thead > tr > th.right.aligned > div"));
+            Addnewbuttonlanguage.Click();
+
+            //search for Languages textbox
+
+            IWebElement AddLanguagetextbox = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.active.tooltip-target > div > div.twelve.wide.column.scrollTable > div > div > div:nth-child(1) > input[type=text]"));
+            AddLanguagetextbox.Click();
+            AddLanguagetextbox.SendKeys("English");
+
+            //Select choose language level dropbox
+
+            IWebElement Languagelevelbuttion = driver.FindElement(By.CssSelector("[class='ui dropdown']"));
+            SelectElement LanguageElement = new SelectElement(Languagelevelbuttion);
+            LanguageElement.SelectByIndex(2);
+
+            //Search for Add button for languages
+
+            IWebElement LanguageAddbutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.active.tooltip-target > div > div.twelve.wide.column.scrollTable > div > div > div.six.wide.field > input.ui.teal.button"));
+            LanguageAddbutton.Click();
+
+            Thread.Sleep(5000);
+
+            //Edit the languages on profie page
+
+            // search for edit languages button
+
+            IWebElement EditLanguagesbutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td.right.aligned > span:nth-child(1)"));
+            EditLanguagesbutton.Click();
+
+            // search for Edit Languages Textbox
+
+            IWebElement EditLanguagestextbox = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.active.tooltip-target > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td > div > div:nth-child(1) > input[type=text]"));
+            EditLanguagestextbox.Click();
+            EditLanguagestextbox.Clear();
+            EditLanguagestextbox.SendKeys("Hindi");
+
+            //Edit Language Level
+
+            IWebElement Editlanguagelevel = driver.FindElement(By.CssSelector("[class='ui dropdown']"));
+            SelectElement EditLanguageElement = new SelectElement(Editlanguagelevel);
+            EditLanguageElement.SelectByIndex(1);
+
+            //search for update button for languages
+
+            IWebElement Languageupdatebutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.active.tooltip-target > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td > div > span > input.ui.teal.button"));
+            Languageupdatebutton.Click();
+
+            Thread.Sleep(4000);
+
+            //check if created value is present in the record
+
+            //IWebElement ActualLanguageName = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
+
+            //assertion
+
+            //Assert.That(ActualLanguageName.Text == "Hindi", "actual name do not match the record");
+
+            // delete the updated profile Languages
+
+            // search for delete button to delete updated languages on profile page
+
+            IWebElement Languagedeltebutton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[2]"));
+            Languagedeltebutton.Click();
 
 
-            //check if seller can add Skills
 
-            //check if seller can add Skills
+
 
             //search for Skills button and add new skills on profile page
 
@@ -102,8 +171,8 @@ namespace ProjectMars
 
             //search for Addnew button
 
-            IWebElement Addnewbutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > table > thead > tr > th.right.aligned > div"));
-            Addnewbutton.Click();
+            IWebElement Addnewbuttonskills = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > table > thead > tr > th.right.aligned > div"));
+            Addnewbuttonskills.Click();
 
             //Search for Add Skill textbox
 
@@ -111,19 +180,22 @@ namespace ProjectMars
             Addskillstextbox.Click();
             Addskillstextbox.SendKeys("Listening");
 
-            // choose Skill level
+            // select choose Skill level dropbox
 
             IWebElement Skilllevelbutton = driver.FindElement(By.CssSelector("[class='ui fluid dropdown']"));
-            SelectElement element = new SelectElement(Skilllevelbutton);
+            SelectElement SkillsElement = new SelectElement(Skilllevelbutton);
 
-            element.SelectByIndex(1);
+            SkillsElement.SelectByIndex(1);
 
             
 
-            // search for add button
+            // search for add button for skills
 
-            IWebElement Addbutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > div > span > input.ui.teal.button"));
-            Addbutton.Click();
+            IWebElement AddSkillbutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > div > span > input.ui.teal.button"));
+            AddSkillbutton.Click();
+
+            Thread.Sleep(5000);
+
             //search for Edit Skills button
 
             IWebElement Editskillsbutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td.right.aligned > span:nth-child(1)"));
@@ -142,15 +214,127 @@ namespace ProjectMars
             IWebElement Updatebutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td > div > span > input.ui.teal.button"));
             Updatebutton.Click();
 
+            Thread.Sleep(4000);
+
+            // delete the updated profile skills
+
+            // search for deletebutton for updated skills on profile page
+
+            IWebElement skilldeltebutton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[3]/span[2]"));
+            skilldeltebutton.Click();
+
+
             //check if created record is presented in the table
 
-            IWebElement Actualskillname = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr[1]"));
+            //IWebElement Actualskillname = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr[last]/td[1]"));
 
             //Assertion
 
-            Assert.That(Actualskillname.Text == "Cricket", "actual name do Not match the record");
+            //Assert.That(Actualskillname.Text == "Cricket", "actual name do Not match the record");
 
             //check if seller can add Education
+
+            //search for Education button to add Education in profile page
+
+            IWebElement Educationbutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.top.attached.tabular.menu > a:nth-child(3)"));
+            Educationbutton.Click();
+
+            //search for Addnew button
+
+            IWebElement AddnewbuttonEducation = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.active.tooltip-target > div > div.twelve.wide.column.scrollTable > div > table > thead > tr > th.right.aligned > div"));
+            AddnewbuttonEducation.Click();
+
+            //search for College textbox
+
+            IWebElement AddCollegetextbox = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > div > div:nth-child(1) > div.ten.wide.field > input[type=text]"));
+            AddCollegetextbox.Click();
+            AddCollegetextbox.SendKeys("ABC");
+
+
+            //Select Country of college dropbox
+
+            IWebElement countrybuttion = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[1]/div[2]/select/option[66]"));
+            countrybuttion.Click();
+            // select title dropbox
+
+            IWebElement Titlebutton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[2]/div[1]/select/option[9]"));
+            Titlebutton.Click();
+
+            //search for degree textbox
+
+            IWebElement Degreetextbox = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > div > div:nth-child(2) > div:nth-child(2) > input[type=text]"));
+            Degreetextbox.Click();
+            Degreetextbox.SendKeys("XYZ");
+
+            //search for year of graduate dropbox
+
+            IWebElement Graduatedropbox = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[2]/div[3]/select/option[10]"));
+            Graduatedropbox.Click();    
+
+            //Search for Add button for Education
+
+            IWebElement EducationAddbutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > div > div:nth-child(3) > div > input.ui.teal.button"));
+            EducationAddbutton.Click();
+
+            Thread.Sleep(2000);
+
+            //Edit the Education on profie page
+
+            // search for edit Education button
+
+            IWebElement EditEducationbutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td.right.aligned > span:nth-child(1)"));
+            EditEducationbutton.Click();
+            Thread.Sleep(2000);
+
+            // search for Edit Education Textbox
+
+            IWebElement EditEducationtextbox = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[1]/div[1]/input"));
+            AddCollegetextbox.Click();
+            AddCollegetextbox.SendKeys("QWERTY");
+
+            //Edit Country Level
+
+            IWebElement Editcountry = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[1]/div[2]/select/option[11]"));
+            Editcountry.Click();
+
+            // Edit title dropbox
+
+            IWebElement EditTitlebutton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[2]/div[1]/select/option[3]"));
+            EditTitlebutton.Click();
+
+            //Edit degree textbox
+
+            IWebElement EditDegreetextbox = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > div > div:nth-child(2) > div:nth-child(2) > input[type=text]"));
+            EditDegreetextbox.Click();
+            EditDegreetextbox.SendKeys("EFG");
+
+            //Edit graduate dropbox
+
+            IWebElement EditGraduatedropbox = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/div/div[2]/div[3]/select/option[4]"));
+            EditGraduatedropbox.Click();
+
+            //search for update button for Education
+
+            IWebElement Educationupdatebutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.active.tooltip-target > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td > div > span > input.ui.teal.button"));
+            Educationupdatebutton.Click();
+
+            //check if created value is present in the record
+
+            //IWebElement ActualEducationrecord = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.active.tooltip-target > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr[last] > td[1]"));
+
+            //assertion
+
+            //Assert.That(ActualEducationrecord.Text == "Hindi", "actual name do not match the record");
+
+            // delete the updated profile skills
+
+            // search for delete button to delete updated Education on profile page
+
+            //IWebElement Educationdeltebutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td.right.aligned > span:nth-child(2)"));
+            //Educationdeltebutton.Click();
+
+
+
 
             //check if seller can add Certificates
 
