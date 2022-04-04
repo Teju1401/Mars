@@ -136,7 +136,7 @@ namespace ProjectMars.Pages
         [TearDown]
          public void closetestrun()
          {
-                         
+            driver.Quit();           
 
          }
 
