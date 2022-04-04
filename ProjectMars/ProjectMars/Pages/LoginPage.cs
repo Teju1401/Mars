@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ProjectMars.Pages
@@ -34,6 +35,13 @@ namespace ProjectMars.Pages
             IWebElement Passwordtextbox = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[2]/input"));
             Passwordtextbox.Click();
             Passwordtextbox.SendKeys("Teju@1401");
+           
+            // search for Login button
+
+            IWebElement Loginbutton = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[4]/button"));
+            Loginbutton.Click();
+
+            Thread.Sleep(5000);
 
 
 
