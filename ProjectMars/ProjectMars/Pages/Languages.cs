@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using ProjectMars.Utilities;
 using System;
@@ -8,18 +9,19 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ProjectMars.Profile
+namespace ProjectMars.Pages
 {
     internal class Languages
     {
-        public void AddLanguages(IWebDriver driver)
+        public void CreateLanguages(IWebDriver driver)
         {
+            Thread.Sleep(6000);
             //check if seller can add Languages
 
             //search for language button to add new languages in profile page
 
-            IWebElement Languagesbutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.top.attached.tabular.menu > a:nth-child(1)"));
-            Languagesbutton.Click();
+            IWebElement Languagebutton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]"));
+            Languagebutton.Click();
 
             //search for Addnew button
 
@@ -44,9 +46,25 @@ namespace ProjectMars.Profile
             LanguageAddbutton.Click();
 
             Wait.Waittobeclickable(driver, "CssSelector", "#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td.right.aligned > span:nth-child(1)", 2);
+
+
+            // check if the record is created
+
+            IWebElement actualLanguage = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
+
+            //assertion
+
+            Assert.That(actualLanguage.Text == "English", "actual Language and expexted Language donot match");
+
         }
 
-        public void EditLanguages(IWebDriver driver)
+        public string GetactualLanguage(IWebDriver driver)
+        {
+            IWebElement actualLanguage = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
+            return actualLanguage.Text;
+        }
+
+        public void UpdateLanguages(IWebDriver driver)
         {
 
             //Edit the languages on profie page
@@ -76,13 +94,19 @@ namespace ProjectMars.Profile
 
             Wait.Waittobeclickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[2]", 2);
 
-            //check if created value is present in the record
+            // check if the record is updated
 
-            //IWebElement ActualLanguageName = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
+            
 
             //assertion
 
-            //Assert.That(ActualLanguageName.Text == "Hindi", "actual name do not match the record");
+            Assert.That(actualupdatedLanguage.Text == "Hindi", "actual updated Language and expexted updated Language donot match");
+        }
+
+        public string GetactualupdatedLanguage(IWebDriver driver)
+        {
+            IWebElement actualupdatedLanguage = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
+            return actualupdatedLanguage.Text;
         }
         public void DeleteLanguages(IWebDriver driver)
         { 

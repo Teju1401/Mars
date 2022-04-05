@@ -36,7 +36,7 @@ namespace ProjectMars.SpecFlow
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "SpecFlow", "ProfileFeature", "I would like to launch the Mars web portal with valid credentials and add,edit an" +
-                    "d update the Languages,Skills<Education and Certifications on profile home page", ProgrammingLanguage.CSharp, featureTags);
+                    "d update the Languages,Skills,Education and Certifications on profile home page", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -97,31 +97,28 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("Loggin to the Mars web portal with valid credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
- testRunner.And("navigated to the profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I navigated to the profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 9
- testRunner.When("I Edit the First and Last Name in the profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click on the Profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
- testRunner.Then("I could see the updated profile", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I could see the profile name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("I succesfully loggin to the Mars web portal, navigated to the profile home page w" +
-            "here i can add,edit and delete the Languages")]
-        [NUnit.Framework.TestCaseAttribute("English", "Hindi", null)]
-        [NUnit.Framework.TestCaseAttribute("Mexicon", "French", null)]
-        public void ISuccesfullyLogginToTheMarsWebPortalNavigatedToTheProfileHomePageWhereICanAddEditAndDeleteTheLanguages(string addLanguages, string editLanguages, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Create Languages in profile home page")]
+        [NUnit.Framework.TestCaseAttribute("English", null)]
+        [NUnit.Framework.TestCaseAttribute("Mexicon", null)]
+        public void CreateLanguagesInProfileHomePage(string languages, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("AddLanguages", addLanguages);
-            argumentsOfScenario.Add("EditLanguages", editLanguages);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I succesfully loggin to the Mars web portal, navigated to the profile home page w" +
-                    "here i can add,edit and delete the Languages", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            argumentsOfScenario.Add("Languages", languages);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Languages in profile home page", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 13
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -133,35 +130,32 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 14
- testRunner.Given("Loggin to the Mars web portal with valid credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I Loggin to the Mars web portal succesfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 15
- testRunner.And("navigate to profile home page to update the languages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I navigated to the profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 16
- testRunner.When(string.Format("I add,edit and delete the languages \'{0}\',\'{1}\' on the profile page", addLanguages, editLanguages), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I create languages \'{0}\' on the profile page", languages), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 17
- testRunner.Then(string.Format("I could see the updated languages \'{0}\',\'{1}\' on profile home page", addLanguages, editLanguages), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("the record should be created \'{0}\'", languages), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("I succesfully loggin to the Mars web portal, navigated to the profile home page w" +
-            "here i can add,edit and delete the Skills")]
-        [NUnit.Framework.TestCaseAttribute("Painting", "Cricket", null)]
-        [NUnit.Framework.TestCaseAttribute("Listening", "Swimming", null)]
-        public void ISuccesfullyLogginToTheMarsWebPortalNavigatedToTheProfileHomePageWhereICanAddEditAndDeleteTheSkills(string addSkills, string editSkills, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Update the Languages on the profile home page")]
+        [NUnit.Framework.TestCaseAttribute("Hindi", null)]
+        [NUnit.Framework.TestCaseAttribute("French", null)]
+        public void UpdateTheLanguagesOnTheProfileHomePage(string languages, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("AddSkills", addSkills);
-            argumentsOfScenario.Add("EditSkills", editSkills);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I succesfully loggin to the Mars web portal, navigated to the profile home page w" +
-                    "here i can add,edit and delete the Skills", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 26
+            argumentsOfScenario.Add("Languages", languages);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update the Languages on the profile home page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 24
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -171,36 +165,172 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 25
+ testRunner.Given("I Loggin to the Mars web portal succesfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 26
+ testRunner.And("I navigated to the profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
 #line 27
- testRunner.Given("Logiin to the Mars web portal with valid credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.When(string.Format("I update languages \'{0}\' on the profile page", languages), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 28
- testRunner.And("navigate to profile home page to update the Skills", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 29
- testRunner.When(string.Format("I add,edit and delete the Skills \'{0}\',\'{1}\' on the profile page", addSkills, editSkills), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 30
- testRunner.Then(string.Format("I could see the updated Skills \'{0}\',\'{1}\' on profile home page", addSkills, editSkills), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("I could see the updated language record \'{0}\'", languages), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("I succesfully loggin to the Mars web portal, navigated to the profile home page w" +
-            "here i can add,edit and delete the Education")]
+        [NUnit.Framework.DescriptionAttribute("Delete the Languages in profile home page")]
+        public void DeleteTheLanguagesInProfileHomePage()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete the Languages in profile home page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 35
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 36
+ testRunner.Given("I Loggin to the Mars web portal succesfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 37
+ testRunner.And("I navigated to the profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 38
+ testRunner.When("I Delete languages on the profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 39
+ testRunner.Then("the record should be deleted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Create Skills on the profile home page")]
+        [NUnit.Framework.TestCaseAttribute("Painting", null)]
+        [NUnit.Framework.TestCaseAttribute("Listening", null)]
+        public void CreateSkillsOnTheProfileHomePage(string skills, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Skills", skills);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Skills on the profile home page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 43
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 44
+ testRunner.Given("I Loggin to the Mars web portal succesfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 45
+ testRunner.And("I navigate to the profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 46
+ testRunner.When(string.Format("I create Skills \'{0}\' on the profile page", skills), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 47
+ testRunner.Then(string.Format("I could see the created \'{0}\'", skills), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Update Skills on the profile home page")]
+        [NUnit.Framework.TestCaseAttribute("Dancing", null)]
+        [NUnit.Framework.TestCaseAttribute("Swimming", null)]
+        public void UpdateSkillsOnTheProfileHomePage(string skills, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Skills", skills);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update Skills on the profile home page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 53
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 54
+ testRunner.Given("I Loggin to the Mars web portal succesfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 55
+ testRunner.And("I navigated to profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 56
+ testRunner.When(string.Format("I update the Skills \'{0}\' on the profile page", skills), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 57
+ testRunner.Then(string.Format("I could see the updated skills record \'{0}\'", skills), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Delete the Skills in profile home page")]
+        public void DeleteTheSkillsInProfileHomePage()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete the Skills in profile home page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 64
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 65
+ testRunner.Given("I Loggin to the Mars web portal succesfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 66
+ testRunner.And("I navigated to the profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 67
+ testRunner.When("I Delete Skills on the profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 68
+ testRunner.Then("the Skills record should be deleted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Create Education on the profile home page")]
         [NUnit.Framework.TestCaseAttribute("ABC", "Post Graduate", null)]
         [NUnit.Framework.TestCaseAttribute("XYZ", "Graduate", null)]
-        public void ISuccesfullyLogginToTheMarsWebPortalNavigatedToTheProfileHomePageWhereICanAddEditAndDeleteTheEducation(string college, string degree, string[] exampleTags)
+        public void CreateEducationOnTheProfileHomePage(string college, string degree, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("College", college);
             argumentsOfScenario.Add("Degree", degree);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I succesfully loggin to the Mars web portal, navigated to the profile home page w" +
-                    "here i can add,edit and delete the Education", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 37
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Education on the profile home page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 70
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -210,38 +340,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 38
- testRunner.Given("Logiin to the Mars web portal with valid credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 71
+ testRunner.Given("I Loggin to the Mars web portal succesfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 39
- testRunner.And("navigate to profile home page to update the Education", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 72
+ testRunner.And("I navigated to profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 40
- testRunner.When("I add,edit and delete the College and Degree \'<AddCollege>\',\'<AddDegree>\',\'<EditC" +
-                        "ollege>\',\'<EditDegree>\' on the profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 73
+ testRunner.When(string.Format("I create the College and Degree \'{0}\',\'{1}\' on the profile page", college, degree), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 41
- testRunner.Then("I could see the updated College and Degree \'<AddCollege>\',\'<AddDegree>\',\'<EditCol" +
-                        "lege>\',\'<EditDegree>\' on profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 74
+ testRunner.Then(string.Format("I could see the created\'{0}\',\'{1}\'", college, degree), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("I succesfully loggin to the Mars web portal, navigated to the profile home page w" +
-            "here i can add,edit and delete the Certifications")]
-        [NUnit.Framework.TestCaseAttribute("Baking", "Bakers", null)]
-        [NUnit.Framework.TestCaseAttribute("Swimming", "Athelet", null)]
-        public void ISuccesfullyLogginToTheMarsWebPortalNavigatedToTheProfileHomePageWhereICanAddEditAndDeleteTheCertifications(string certificate, string certified, string[] exampleTags)
+        [NUnit.Framework.DescriptionAttribute("Update Education on the profile home page")]
+        [NUnit.Framework.TestCaseAttribute("QWERTY", "Begginer", null)]
+        [NUnit.Framework.TestCaseAttribute("EFG", "School", null)]
+        public void UpdateEducationOnTheProfileHomePage(string college, string degree, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("Certificate", certificate);
-            argumentsOfScenario.Add("Certified", certified);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I succesfully loggin to the Mars web portal, navigated to the profile home page w" +
-                    "here i can add,edit and delete the Certifications", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 48
+            argumentsOfScenario.Add("College", college);
+            argumentsOfScenario.Add("Degree", degree);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update Education on the profile home page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 81
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -251,19 +377,157 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 49
- testRunner.Given("Logiin to the Mars web portal with valid credentials", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 82
+ testRunner.Given("I Loggin to the Mars web portal succesfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 50
- testRunner.And("navigate to profile home page to update the Certifications", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 83
+ testRunner.And("I navigated to profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 51
- testRunner.When("I add,edit and delete the Certificates and Certified \'<AddCertificate>\',\'<AddCert" +
-                        "ified>\',\'<EditCertificate>\',\'<EditCertified>\' on the profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 84
+ testRunner.When(string.Format("I update the College and Degree \'{0}\',\'{1}\' on the profile page", college, degree), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 52
- testRunner.Then("I could see the updated Certificates and Certified \'<AddCertificate>\',\'<AddCertif" +
-                        "ied>\',\'<EditCertificate>\',\'<EditCertified>\' on profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 85
+ testRunner.Then(string.Format("I could see the updated education record \'{0}\',\'{1}\'", college, degree), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Delete Education on profile home page")]
+        public void DeleteEducationOnProfileHomePage()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete Education on profile home page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 92
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 93
+ testRunner.Given("I Loggin to the Mars web portal succesfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 94
+ testRunner.And("I navigated to the profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 95
+ testRunner.When("I Delete Education record on the profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 96
+ testRunner.Then("the Education record should be deleted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Create Certifications on the profile home page")]
+        [NUnit.Framework.TestCaseAttribute("Baking", "Bakers", null)]
+        [NUnit.Framework.TestCaseAttribute("Swimming", "Athelet", null)]
+        public void CreateCertificationsOnTheProfileHomePage(string certificate, string certified, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Certificate", certificate);
+            argumentsOfScenario.Add("Certified", certified);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Certifications on the profile home page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 98
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 99
+ testRunner.Given("I Loggin to the Mars web portal succesfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 100
+ testRunner.And("I navigated to profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 101
+ testRunner.When(string.Format("I create the Certificates and Certified \'{0}\',\'{1}\' on the profile page", certificate, certified), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 102
+ testRunner.Then(string.Format("I could see the created record \'{0}\',\'{1}\'", certificate, certified), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Update Certifications on the profile home page")]
+        [NUnit.Framework.TestCaseAttribute("Painting", "XYZ college", null)]
+        [NUnit.Framework.TestCaseAttribute("Dancing", "Studio", null)]
+        public void UpdateCertificationsOnTheProfileHomePage(string certificate, string certified, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Certificate", certificate);
+            argumentsOfScenario.Add("Certified", certified);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update Certifications on the profile home page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 108
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 109
+ testRunner.Given("I Loggin to the Mars web portal succesfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 110
+ testRunner.And("I navigated to profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 111
+ testRunner.When(string.Format("I update the Certificates and Certified \'{0}\',\'{1}\' on the profile page", certificate, certified), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 112
+ testRunner.Then(string.Format("I could see the updated certificates and certfied record \'{0}\',\'{1}\'", certificate, certified), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Delete Certifications on profile home page")]
+        public void DeleteCertificationsOnProfileHomePage()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete Certifications on profile home page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 119
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 120
+ testRunner.Given("I Loggin to the Mars web portal succesfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 121
+ testRunner.And("I navigated to the profile home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 122
+ testRunner.When("I Delete Certifications record on the profile page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 123
+ testRunner.Then("the Certifications and certified record should be deleted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using ProjectMars.Utilities;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace ProjectMars.Profile
 {
     internal class Education
     {
-        public void AddEducation(IWebDriver driver)
+        public void CreateEducation(IWebDriver driver)
         {
             //check if seller can add Education
 
@@ -58,8 +59,22 @@ namespace ProjectMars.Profile
             EducationAddbutton.Click();
 
             Wait.Waittobeclickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[6]/span[1]", 2);
+
+            // check if the record is created
+
+            
+
+            //assertion
+
+            Assert.That(university.Text == "ABC", "actual university name and expexted university name donot match");
+
         }
-        public void EditEducation(IWebDriver driver)
+        public string Getuniversity(IWebDriver driver)
+        {
+            IWebElement university = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[2]"));
+            return university.Text;
+        }
+        public void UpdateEducation(IWebDriver driver)
         {
 
             //Edit the Education on profie page
@@ -106,13 +121,19 @@ namespace ProjectMars.Profile
 
             Wait.WaittobeVisible(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[6]/span[2]", 2);
 
-            //check if created value is present in the record
+            // check if the record is Edited
 
-            //IWebElement ActualEducationrecord = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.active.tooltip-target > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr[last] > td[1]"));
+            
 
             //assertion
 
-            //Assert.That(ActualEducationrecord.Text == "Hindi", "actual name do not match the record");
+            //Assert.That(Updateuniversity.Text == "QWERTY", "actual university name and expexted university name donot match");
+        }
+        public string GetUpdateuniversity(IWebDriver driver)
+        {
+            IWebElement Updateuniversity = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[2]"));
+            return Updateuniversity.Text;
+
         }
         public void DeleteEducation(IWebDriver driver)
         { 

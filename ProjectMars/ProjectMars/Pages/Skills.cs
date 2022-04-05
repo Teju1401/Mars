@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using ProjectMars.Utilities;
 using System;
@@ -8,15 +9,16 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ProjectMars.Profile
+namespace ProjectMars.Pages
 {
     internal class Skills
     {
-        public void AddSkills(IWebDriver driver)
+        public void CreateSkills(IWebDriver driver)
         {
+                        
             //search for Skills button and add new skills on profile page
 
-            IWebElement Skillsbutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.top.attached.tabular.menu > a:nth-child(2)"));
+            IWebElement Skillsbutton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[1]/a[2]"));
             Skillsbutton.Click();
 
             //search for Addnew button
@@ -44,9 +46,25 @@ namespace ProjectMars.Profile
             IWebElement AddSkillbutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > div > span > input.ui.teal.button"));
             AddSkillbutton.Click();
 
-            Wait.WaittobeVisible(driver, "CssSelector", "#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td.right.aligned > span:nth-child(1)", 2);
+            Wait.WaittobeVisible(driver, "CssSelector", "#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td.right.aligned > span:nth-child(1)", 30);
+
+            // check if the record is created
+
+           
+
+            //assertion
+
+            Assert.That(actualskill.Text == "Listening", "actualskill and expexted skill donot match");
+
+
+
         }
-        public void Editskills(IWebDriver driver)
+        public string Getactualskill(IWebDriver driver)
+        {
+            IWebElement actualskill = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
+            return actualskill.Text;
+        }
+        public void Updateskills(IWebDriver driver)
         {
 
             //search for Edit Skills button
@@ -61,14 +79,39 @@ namespace ProjectMars.Profile
             Editskilllevetextbox.Clear();
             Editskilllevetextbox.SendKeys("Cricket");
 
+            // select choose Skill level dropbox
+
+            IWebElement Skilllevelbutton = driver.FindElement(By.CssSelector("[class='ui fluid dropdown']"));
+            SelectElement SkillsElement = new SelectElement(Skilllevelbutton);
+
+            SkillsElement.SelectByIndex(2);
+
 
             // search for update button
 
             IWebElement Updatebutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td > div > span > input.ui.teal.button"));
             Updatebutton.Click();
 
-            Wait.WaittobeVisible(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[3]/span[2]", 2);
+            Wait.WaittobeVisible(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[3]/span[2]", 30);
+
+            // check if the record is created
+
+            
+
+            //assertion
+
+            Assert.That(actualupdatedskill.Text == "Cricket", "actualskill and expexted skill donot match");
+
+
+
         }
+        public string Getactualupdatedskill(IWebDriver driver)
+        {
+            IWebElement actualupdatedskill = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
+            return actualupdatedskill.Text;
+
+        }
+
         public void Deleteskills(IWebDriver driver)
         { 
 
