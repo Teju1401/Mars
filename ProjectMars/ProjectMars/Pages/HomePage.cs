@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace ProjectMars.Pages
 {
-    internal class HomePage
+    public class HomePage
     {
 
         public void Gotoprofilehomepage(IWebDriver driver)
         {
-            Thread.Sleep(4000);
+            Wait.WaittobeVisible(driver, "XPath", "//*[@id='account-profile-section']/div/section[1]/div/a[2]", 60);
 
             //check if seller can navigated to profile home page
             // search for profile icon

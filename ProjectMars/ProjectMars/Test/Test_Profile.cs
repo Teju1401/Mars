@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using ProjectMars.Pages;
 using ProjectMars.Profile;
@@ -11,22 +12,14 @@ using System.Threading.Tasks;
 
 namespace ProjectMars.Test
 {
+    [TestFixture]
+    [Parallelizable]
     internal class Test_Profile : CommonDriver
 
     {
-         public static void Main(string[] args)
+        [Test, Order(1)]
+        public void CreateLanguages_Test_Profile()
         {
-            // open chrome driver
-
-            IWebDriver driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-
-            // Login page object Initialization and definition
-
-
-            LoginPage loginpageObj = new LoginPage();
-            loginpageObj.Loginsteps(driver);
-
             //home page object initialization and definition
             HomePage homepageObj = new HomePage();
             homepageObj.Gotoprofilehomepage(driver);
@@ -34,46 +27,95 @@ namespace ProjectMars.Test
             // Add Language on profile page
 
             Languages LanguageObj = new Languages();
-            LanguageObj.CreateLanguages(driver);
+            LanguageObj.CreateLanguages(driver, "english");
 
-            //Edit Language on profile page
+        }
+        [Test, Order(2)]
+        public void UpdateLanguages_Test_Profile()
+        {
+            //home page object initialization and definition
+            HomePage homepageObj = new HomePage();
+            homepageObj.Gotoprofilehomepage(driver);
 
-            
-            LanguageObj.UpdateLanguages(driver);
+            Languages LanguageObj = new Languages();
+            LanguageObj.UpdateLanguages(driver, "hindi");
+                
+        }
+        [Test, Order(3)]
+        public void DeleteLanguages_Test_Profile()
+        {
+            //home page object initialization and definition
+            HomePage homepageObj = new HomePage();
+            homepageObj.Gotoprofilehomepage(driver);
 
-            // Delete Language on profile page
-
-            
+            Languages LanguageObj = new Languages();
             LanguageObj.DeleteLanguages(driver);
-
-
+        }
+        [Test, Order(4)]
+        public void CreateSkills_Test_Profile()
+        {
+            //home page object initialization and definition
+            HomePage homepageObj = new HomePage();
+            homepageObj.Gotoprofilehomepage(driver);
 
             Skills SkillsObj = new Skills();
-            SkillsObj.CreateSkills(driver);
+            SkillsObj.CreateSkills(driver, "painting");
 
-            SkillsObj.Updateskills(driver);
-                     
+
+        }
+        [Test, Order(5)]
+        public void UpdateSkills_Test_Profile()
+        {
+            //home page object initialization and definition
+            HomePage homepageObj = new HomePage();
+            homepageObj.Gotoprofilehomepage(driver);
+
+            Skills SkillsObj = new Skills();
+            SkillsObj.Updateskills(driver, "dancing");
+        }
+        [Test, Order(6)]
+        public void DeleteSkills_Test_Profile()
+        {
+            //home page object initialization and definition
+            HomePage homepageObj = new HomePage();
+            homepageObj.Gotoprofilehomepage(driver);
+
+            Skills SkillsObj = new Skills();
             SkillsObj.Deleteskills(driver);
+
+        }
+        [Test, Order(7)]
+        public void CreateEducation_Test_Profile()
+        {
+            //home page object initialization and definition
+            HomePage homepageObj = new HomePage();
+            homepageObj.Gotoprofilehomepage(driver);
 
 
             Education EducationObj = new Education();
-            EducationObj.CreateEducation(driver);
+            EducationObj.CreateEducation(driver, "aBC", "p1");
+        }
+        [Test, Order(8)]
+        public void UpdateEducation_Test_Profile()
+        {
+            //home page object initialization and definition
+            HomePage homepageObj = new HomePage();
+            homepageObj.Gotoprofilehomepage(driver);
 
+            Education EducationObj = new Education();
+            EducationObj.UpdateEducation(driver, "qWERTY", "begginer");
 
+        }
+        [Test, Order(9)]
+        public void DeleteEducation_Test_Profile()
+        {
+            //home page object initialization and definition
+            HomePage homepageObj = new HomePage();
+            homepageObj.Gotoprofilehomepage(driver);
 
-            EducationObj.UpdateEducation(driver);
-
-
+            Education EducationObj = new Education();
             EducationObj.DeleteEducation(driver);
-
-
-
-
-
-
-
-
-         }
+        }
 
 
 

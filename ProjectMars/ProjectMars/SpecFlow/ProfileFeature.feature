@@ -1,5 +1,5 @@
 ﻿Feature: ProfileFeature
-I would like to launch the Mars web portal with valid credentials and add,edit and update the Languages,Skills,Education and Certifications on profile home page
+I would like to launch the Mars web portal with valid credentials and perform CRUD operation for Languages,Skills,Education and Certifications on profile home page
 
 
 @tag1
@@ -16,13 +16,14 @@ Scenario: I logged into the Mars web portal and navigated to profile home page
 	When I create languages '<Languages>' on the profile page
 	Then the record should be created '<Languages>'
 
+
 	Examples: 
 	| Languages    | 
 	| English      | 
 	| Mexicon      | 
 
 	Scenario Outline: Update the Languages on the profile home page
-	Given I Loggin to the Mars web portal succesfully
+	Given I Loggin to the Mars web portal succesfully to update Languages
 	And I navigated to the profile home page 
 	When I update languages '<Languages>' on the profile page
 	Then I could see the updated language record '<Languages>'
@@ -33,7 +34,7 @@ Scenario: I logged into the Mars web portal and navigated to profile home page
 	| French    |
 
 Scenario: Delete the Languages in profile home page
-	Given I Loggin to the Mars web portal succesfully
+	Given I Loggin to the Mars web portal succesfully to delete languages
 	And I navigated to the profile home page 
 	When I Delete languages on the profile page
 	Then the record should be deleted
@@ -41,8 +42,8 @@ Scenario: Delete the Languages in profile home page
 	
 
 	Scenario Outline:Create Skills on the profile home page
-	Given I Loggin to the Mars web portal succesfully
-	And I navigate to the profile home page 
+	Given I Loggin to the Mars web portal succesfully to create skills
+	And I navigate to the profile home page to create skills 
 	When I create Skills '<Skills>' on the profile page
 	Then I could see the created '<Skills>'
 
@@ -51,8 +52,8 @@ Scenario: Delete the Languages in profile home page
 	| Painting | 
 	| Listening| 
 	Scenario Outline:Update Skills on the profile home page
-	Given I Loggin to the Mars web portal succesfully
-	And I navigated to profile home page
+	Given I Loggin to the Mars web portal succesfully to update skills
+	And I navigated to profile home page to update skills
 	When I update the Skills '<Skills>' on the profile page
 	Then I could see the updated skills record '<Skills>'
 
@@ -62,14 +63,14 @@ Scenario: Delete the Languages in profile home page
 	| Swimming |
 
 	Scenario: Delete the Skills in profile home page
-	Given I Loggin to the Mars web portal succesfully
-	And I navigated to the profile home page 
+	Given I Loggin to the Mars web portal succesfully to delete skills
+	And I navigated to the profile home page to delete skills
 	When I Delete Skills on the profile page
 	Then the Skills record should be deleted
 
 	Scenario Outline:Create Education on the profile home page
-	Given I Loggin to the Mars web portal succesfully
-	And I navigated to profile home page
+	Given I Loggin to the Mars web portal succesfully to create education
+	And I navigated to profile home page to create education
 	When I create the College and Degree '<College>','<Degree>' on the profile page
 	Then I could see the created'<College>','<Degree>'
 
@@ -79,8 +80,8 @@ Scenario: Delete the Languages in profile home page
 	| XYZ     | Graduate      |
 
 	Scenario Outline:Update Education on the profile home page
-	Given I Loggin to the Mars web portal succesfully
-	And I navigated to profile home page
+	Given I Loggin to the Mars web portal succesfully to update education
+	And I navigated to profile home page to update education
 	When I update the College and Degree '<College>','<Degree>' on the profile page
 	Then I could see the updated education record '<College>','<Degree>'
 
@@ -90,8 +91,8 @@ Scenario: Delete the Languages in profile home page
 	| EFG     | School        |
 
 	Scenario: Delete Education on profile home page
-	Given I Loggin to the Mars web portal succesfully
-	And I navigated to the profile home page 
+	Given I Loggin to the Mars web portal succesfully to delete education
+	And I navigated to the profile home page to delete education
 	When I Delete Education record on the profile page
 	Then the Education record should be deleted
 

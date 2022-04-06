@@ -11,10 +11,11 @@ using System.Threading.Tasks;
 
 namespace ProjectMars.Pages
 {
-    internal class Skills
+    public class Skills
     {
-        public void CreateSkills(IWebDriver driver)
+        public void CreateSkills(IWebDriver driver, string painting)
         {
+            Wait.Waittobeclickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[1]/a[2]", 100);
                         
             //search for Skills button and add new skills on profile page
 
@@ -30,7 +31,7 @@ namespace ProjectMars.Pages
 
             IWebElement Addskillstextbox = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > div > div:nth-child(1) > input[type=text]"));
             Addskillstextbox.Click();
-            Addskillstextbox.SendKeys("Listening");
+            Addskillstextbox.SendKeys(painting);
 
             // select choose Skill level dropbox
 
@@ -54,7 +55,7 @@ namespace ProjectMars.Pages
 
             //assertion
 
-            Assert.That(actualskill.Text == "Listening", "actualskill and expexted skill donot match");
+           // Assert.That(actualskill.Text == "Listening", "actualskill and expexted skill donot match");
 
 
 
@@ -64,8 +65,9 @@ namespace ProjectMars.Pages
             IWebElement actualskill = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
             return actualskill.Text;
         }
-        public void Updateskills(IWebDriver driver)
+        public void Updateskills(IWebDriver driver, string dancing)
         {
+            Thread.Sleep(6000);
 
             //search for Edit Skills button
 
@@ -77,7 +79,7 @@ namespace ProjectMars.Pages
             IWebElement Editskilllevetextbox = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td > div > div:nth-child(1) > input[type=text]"));
             Editskilllevetextbox.Click();
             Editskilllevetextbox.Clear();
-            Editskilllevetextbox.SendKeys("Cricket");
+            Editskilllevetextbox.SendKeys(dancing);
 
             // select choose Skill level dropbox
 
@@ -100,7 +102,7 @@ namespace ProjectMars.Pages
 
             //assertion
 
-            Assert.That(actualupdatedskill.Text == "Cricket", "actualskill and expexted skill donot match");
+            //Assert.That(actualupdatedskill.Text == "Cricket", "actualskill and expexted skill donot match");
 
 
 
@@ -113,7 +115,8 @@ namespace ProjectMars.Pages
         }
 
         public void Deleteskills(IWebDriver driver)
-        { 
+        {
+            Thread.Sleep(6000);
 
             // delete the updated profile skills
 

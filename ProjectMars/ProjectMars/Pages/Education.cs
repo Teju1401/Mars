@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ProjectMars.Profile
+namespace ProjectMars.Pages
 {
-    internal class Education
+    public class Education
     {
-        public void CreateEducation(IWebDriver driver)
+        public void CreateEducation(IWebDriver driver, string aBC, string p1)
         {
             //check if seller can add Education
 
@@ -30,7 +30,7 @@ namespace ProjectMars.Profile
 
             IWebElement AddCollegetextbox = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > div > div:nth-child(1) > div.ten.wide.field > input[type=text]"));
             AddCollegetextbox.Click();
-            AddCollegetextbox.SendKeys("ABC");
+            AddCollegetextbox.SendKeys(aBC);
 
 
             //Select Country of college dropbox
@@ -46,7 +46,7 @@ namespace ProjectMars.Profile
 
             IWebElement Degreetextbox = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > div > div:nth-child(2) > div:nth-child(2) > input[type=text]"));
             Degreetextbox.Click();
-            Degreetextbox.SendKeys("XYZ");
+            Degreetextbox.SendKeys(p1);
 
             //search for year of graduate dropbox
 
@@ -66,7 +66,7 @@ namespace ProjectMars.Profile
 
             //assertion
 
-            Assert.That(university.Text == "ABC", "actual university name and expexted university name donot match");
+            //Assert.That(university.Text == "ABC", "actual university name and expexted university name donot match");
 
         }
         public string Getuniversity(IWebDriver driver)
@@ -74,8 +74,9 @@ namespace ProjectMars.Profile
             IWebElement university = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[2]"));
             return university.Text;
         }
-        public void UpdateEducation(IWebDriver driver)
+        public void UpdateEducation(IWebDriver driver, string qWERTY, string begginer)
         {
+            Wait.Waittobeclickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[6]/span[1]", 60);
 
             //Edit the Education on profie page
 
@@ -83,6 +84,7 @@ namespace ProjectMars.Profile
 
             IWebElement EditEducationbutton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[6]/span[1]"));
             EditEducationbutton.Click();
+
             Wait.Waittobeclickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td/div[1]/div[1]/input", 2);
 
             // search for Edit Education Textbox
@@ -90,7 +92,7 @@ namespace ProjectMars.Profile
             IWebElement EditEducationtextbox = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td/div[1]/div[1]/input"));
             EditEducationtextbox.Click();
             EditEducationtextbox.Clear();
-            EditEducationtextbox.SendKeys("QWERTY");
+            EditEducationtextbox.SendKeys(qWERTY);
 
             //Edit Country Level
 
@@ -107,7 +109,7 @@ namespace ProjectMars.Profile
             IWebElement EditDegreetextbox = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td/div[2]/div[2]/input"));
             EditDegreetextbox.Click();
             EditDegreetextbox.Clear();
-            EditDegreetextbox.SendKeys("EFG");
+            EditDegreetextbox.SendKeys(begginer);
 
             //Edit graduate dropbox
 
@@ -136,7 +138,8 @@ namespace ProjectMars.Profile
 
         }
         public void DeleteEducation(IWebDriver driver)
-        { 
+        {
+            Wait.Waittobeclickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[6]/span[2]", 60);
 
             // delete the updated profile skills
 

@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace ProjectMars.Pages
 {
-    internal class Languages
+    public class Languages
     {
-        public void CreateLanguages(IWebDriver driver)
+        public void CreateLanguages(IWebDriver driver, string english)
         {
             Thread.Sleep(6000);
             //check if seller can add Languages
@@ -32,7 +32,7 @@ namespace ProjectMars.Pages
 
             IWebElement AddLanguagetextbox = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.active.tooltip-target > div > div.twelve.wide.column.scrollTable > div > div > div:nth-child(1) > input[type=text]"));
             AddLanguagetextbox.Click();
-            AddLanguagetextbox.SendKeys("English");
+            AddLanguagetextbox.SendKeys(english);
 
             //Select choose language level dropbox
 
@@ -54,7 +54,7 @@ namespace ProjectMars.Pages
 
             //assertion
 
-            Assert.That(actualLanguage.Text == "English", "actual Language and expexted Language donot match");
+            //Assert.That(actualLanguage.Text == "English", "actual Language and expexted Language donot match");
 
         }
 
@@ -64,8 +64,9 @@ namespace ProjectMars.Pages
             return actualLanguage.Text;
         }
 
-        public void UpdateLanguages(IWebDriver driver)
+        public void UpdateLanguages(IWebDriver driver, string hindi)
         {
+            Thread.Sleep(6000);
 
             //Edit the languages on profie page
 
@@ -79,7 +80,7 @@ namespace ProjectMars.Pages
             IWebElement EditLanguagestextbox = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.active.tooltip-target > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td > div > div:nth-child(1) > input[type=text]"));
             EditLanguagestextbox.Click();
             EditLanguagestextbox.Clear();
-            EditLanguagestextbox.SendKeys("Hindi");
+            EditLanguagestextbox.SendKeys(hindi);
 
             //Edit Language Level
 
@@ -100,7 +101,7 @@ namespace ProjectMars.Pages
 
             //assertion
 
-            Assert.That(actualupdatedLanguage.Text == "Hindi", "actual updated Language and expexted updated Language donot match");
+            //Assert.That(actualupdatedLanguage.Text == "Hindi", "actual updated Language and expexted updated Language donot match");
         }
 
         public string GetactualupdatedLanguage(IWebDriver driver)
@@ -109,7 +110,8 @@ namespace ProjectMars.Pages
             return actualupdatedLanguage.Text;
         }
         public void DeleteLanguages(IWebDriver driver)
-        { 
+        {
+            Thread.Sleep(6000);
 
             // delete the updated profile Languages
 
