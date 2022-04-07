@@ -16,7 +16,7 @@ namespace ProjectMars.Pages
         public void CreateSkills(IWebDriver driver, string painting)
         {
             Wait.Waittobeclickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[1]/a[2]", 100);
-                        
+
             //search for Skills button and add new skills on profile page
 
             IWebElement Skillsbutton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[1]/a[2]"));
@@ -49,13 +49,14 @@ namespace ProjectMars.Pages
 
             Wait.WaittobeVisible(driver, "CssSelector", "#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td.right.aligned > span:nth-child(1)", 120);
 
+            Thread.Sleep(3000);
             // check if the record is created
 
-           
+
 
             //assertion
 
-           // Assert.That(actualskill.Text == "Listening", "actualskill and expexted skill donot match");
+            // Assert.That(actualskill.Text == "Listening", "actualskill and expexted skill donot match");
 
 
 
@@ -100,9 +101,10 @@ namespace ProjectMars.Pages
 
             Wait.WaittobeVisible(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[3]/span[2]", 120);
 
+            Thread.Sleep(3000);
             // check if the record is created
 
-            
+
 
             //assertion
 
@@ -116,7 +118,10 @@ namespace ProjectMars.Pages
             IWebElement actualupdatedskill = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[1]"));
             return actualupdatedskill.Text;
 
+
         }
+
+
 
         public void Deleteskills(IWebDriver driver)
         {
@@ -133,7 +138,8 @@ namespace ProjectMars.Pages
             IWebElement skilldeltebutton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[3]/span[2]"));
             skilldeltebutton.Click();
 
-            
+
+            Thread.Sleep(3000);
 
 
 
@@ -151,18 +157,17 @@ namespace ProjectMars.Pages
         }
         public string GetDeletedskillsrecord(IWebDriver driver)
         {
-            IWebElement Actualskillname = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[1]"));
+            IWebElement Actualskillname = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/thead/tr"));
             return Actualskillname.Text;
         }
 
 
 
-
-
-
-
-
     }
+
+
+
+}
 
 
 
@@ -185,4 +190,3 @@ namespace ProjectMars.Pages
 
 
    
-}

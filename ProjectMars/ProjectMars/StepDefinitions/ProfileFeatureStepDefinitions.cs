@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using ProjectMars.Pages;
 using ProjectMars.Profile;
@@ -43,6 +44,7 @@ namespace ProjectMars.StepDefinitions
         public void ThenICouldSeeTheProfileName()
         {
             string newactualname = homepageObj.Getactualname(driver);
+            Assert.That(newactualname == "Hi Teja Kumari", "actual name and expected name donot match");
         }
 
         [Given(@"I Loggin to the Mars web portal succesfully with valid credentials to perform CRUD")]
@@ -69,6 +71,7 @@ namespace ProjectMars.StepDefinitions
         public void ThenTheLanguageRecordShouldBeAbleToCreate(string english)
         {
             string newactualLanguage = LanguageObj.GetactualLanguage(driver);
+            Assert.That(newactualLanguage == english, "actual Language and expexted Language donot match");
         }
               
 
@@ -82,6 +85,7 @@ namespace ProjectMars.StepDefinitions
         public void ThenTheLanguageRecordShouldBeUpdatedWithOnThProfileHomePage(string hindi)
         {
             string newactualupdatedLanguage = LanguageObj.GetactualupdatedLanguage(driver);
+            Assert.That(newactualupdatedLanguage == hindi, "actual updated Language and expexted updated Language donot match");
         }
 
         [When(@"I delete the Languages on the profile home page")]
@@ -94,6 +98,7 @@ namespace ProjectMars.StepDefinitions
         public void ThenTheLanguageRecordShouldBeDeletedOnTheProfileHomePage()
         {
             string newupdatedrecord = LanguageObj.GetDeletedRecord(driver);
+            Assert.That(newupdatedrecord != "English", " record is not deleted");
         }
 
         [Given(@"I Loggin to the Mars web portal succesfully to perform CRUD for skills")]
@@ -120,6 +125,7 @@ namespace ProjectMars.StepDefinitions
         public void ThenTheSkillsrecordShouldBeAbleToCreate(string painting)
         {
             string newactualskill = SkillsObj.Getactualskill(driver);
+            Assert.That(newactualskill == painting, "actualskill and expexted skill donot match");
         }
                 
 
@@ -133,6 +139,7 @@ namespace ProjectMars.StepDefinitions
         public void ThenTheSkillsRecordShouldBeUpdatedWithOnThProfileHomePage(string dancing)
         {
             string newactualupdatedskill = SkillsObj.Getactualupdatedskill(driver);
+            Assert.That(newactualupdatedskill == dancing, "actualskill and expexted skill donot match");
         }
                
 
@@ -146,6 +153,7 @@ namespace ProjectMars.StepDefinitions
         public void ThenTheSkillsRecordShouldBeDeletedOnTheProfileHomePage()
         {
             string newActualskillname = SkillsObj.GetDeletedskillsrecord(driver);
+            Assert.That(newActualskillname != "Cricket", "skill record is not deleted");
         }
 
         [Given(@"I Loggin to the Mars web portal succesfully to perform CRUD for Education")]
@@ -173,6 +181,7 @@ namespace ProjectMars.StepDefinitions
         {
             
             string newuniversity = EducationObj.Getuniversity(driver);
+            Assert.That(newuniversity == aBC, "actual university name and expexted university name donot match");
         }
 
         [When(@"I update the College and Degree in Education '([^']*)','([^']*)' on the profile home page")]
@@ -185,6 +194,7 @@ namespace ProjectMars.StepDefinitions
         public void ThenTheEducationRecordShouldBeUpdatedOnThProfileHomePage(string qWERTY, string begginer)
         {
             string newUpdateuniversity = EducationObj.GetUpdateuniversity(driver);
+            Assert.That(newUpdateuniversity == qWERTY, "actual university name and expexted university name donot match");
         }
 
         [When(@"I delete the Education on the profile home page")]
@@ -197,6 +207,7 @@ namespace ProjectMars.StepDefinitions
         public void ThenTheEducationRecordShouldBeDeletedOnTheProfileHomePage()
         {
             string newEducationrecord = EducationObj.GetDeletededucationrecord(driver);
+            Assert.That(newEducationrecord != "QWERTY", "record is not deleted");
 
         }
 

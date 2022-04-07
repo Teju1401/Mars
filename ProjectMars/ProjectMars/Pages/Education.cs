@@ -60,6 +60,7 @@ namespace ProjectMars.Pages
 
             Wait.Waittobeclickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[6]/span[1]", 2);
 
+            Thread.Sleep(3000);
             // check if the record is created
 
             
@@ -124,8 +125,9 @@ namespace ProjectMars.Pages
             IWebElement Educationupdatebutton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td/div[3]/input[1]"));
             Educationupdatebutton.Click();
 
-            Wait.WaittobeVisible(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[6]/span[2]", 2);
+            Wait.WaittobeVisible(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[6]/span[2]", 120);
 
+            Thread.Sleep(3000);
             // check if the record is Edited
 
             
@@ -155,6 +157,7 @@ namespace ProjectMars.Pages
             IWebElement Educationdeltebutton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[6]/span[2]"));
             Educationdeltebutton.Click();
 
+            Thread.Sleep(3000);
                  
 
         }
@@ -162,7 +165,7 @@ namespace ProjectMars.Pages
         public string GetDeletededucationrecord(IWebDriver driver)
         {
 
-            IWebElement Educationrecord = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[2]"));
+            IWebElement Educationrecord = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/thead/tr"));
             return Educationrecord.Text;
 
         }

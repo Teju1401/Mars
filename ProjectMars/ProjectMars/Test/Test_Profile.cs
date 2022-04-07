@@ -39,7 +39,7 @@ namespace ProjectMars.Test
 
             Languages LanguageObj = new Languages();
             LanguageObj.UpdateLanguages(driver, "hindi");
-                
+
         }
         [Test, Order(3)]
         public void DeleteLanguages_Test_Profile()
@@ -116,11 +116,7 @@ namespace ProjectMars.Test
             Education EducationObj = new Education();
             EducationObj.DeleteEducation(driver);
         }
-
-
-
-
-
+        
 
     }
 }

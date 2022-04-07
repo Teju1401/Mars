@@ -47,10 +47,10 @@ namespace ProjectMars.Pages
 
             Wait.Waittobeclickable(driver, "CssSelector", "#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td.right.aligned > span:nth-child(1)", 2);
 
-
+            Thread.Sleep(3000);
             // check if the record is created
 
-            IWebElement actualLanguage = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
+            //IWebElement actualLanguage = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
 
             //assertion
 
@@ -62,6 +62,8 @@ namespace ProjectMars.Pages
         {
             IWebElement actualLanguage = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
             return actualLanguage.Text;
+
+            
         }
 
         public void UpdateLanguages(IWebDriver driver, string hindi)
@@ -97,7 +99,7 @@ namespace ProjectMars.Pages
 
             // check if the record is updated
 
-            
+            Thread.Sleep(3000);
 
             //assertion
 
@@ -111,7 +113,10 @@ namespace ProjectMars.Pages
         }
         public void DeleteLanguages(IWebDriver driver)
         {
-            Thread.Sleep(6000);
+
+            
+            Wait.Waittobeclickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[2]", 120);
+            Thread.Sleep(3000);
 
             // delete the updated profile Languages
 
@@ -119,6 +124,7 @@ namespace ProjectMars.Pages
 
             IWebElement Languagedeltebutton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[2]"));
             Languagedeltebutton.Click();
+            Thread.Sleep(3000);
 
             // check if the record is deleted successfully
 
@@ -132,8 +138,11 @@ namespace ProjectMars.Pages
         }
         public string GetDeletedRecord(IWebDriver driver)
         {
-            IWebElement updatedrecord = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
+            IWebElement updatedrecord = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr"));
             return updatedrecord.Text;
+
+
+
         }
 
 
