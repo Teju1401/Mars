@@ -10,115 +10,58 @@ Scenario: I logged into the Mars web portal and navigated to profile home page
 	Then I could see the profile name
 
 
-	Scenario Outline: Create Languages in profile home page
-	Given I Loggin to the Mars web portal succesfully
-	And I navigated to the profile home page 
-	When I create languages '<Languages>' on the profile page
-	Then the record should be created '<Languages>'
-
+	Scenario Outline: I succesfully login to the web portal to perfom CRUD operations for Languages
+	Given I Loggin to the Mars web portal succesfully with valid credentials to perform CRUD
+	And I navigated to the profile home page to perform CRUD for languages 
+	When I create language '<Languages>' on the profile page
+	Then The language record should be able to create '<Languages>' 
+	When I update the languages '<Updatelanguages>' on the profile home page
+	Then The language record should be updated with '<Updatelanguages>' on th profile home page
+	When I delete the Languages on the profile home page
+	Then the language record should be deleted on the profile home page
 
 	Examples: 
-	| Languages    | 
-	| English      | 
-	| Mexicon      | 
+	| Languages | Updatelanguages |
+	| English   | Hindi           |
+	| French    | Mexicon         |
 
-	Scenario Outline: Update the Languages on the profile home page
-	Given I Loggin to the Mars web portal succesfully to update Languages
-	And I navigated to the profile home page 
-	When I update languages '<Languages>' on the profile page
-	Then I could see the updated language record '<Languages>'
 
-	Examples:
-	| Languages |
-	| Hindi     |
-	| French    |
 
-Scenario: Delete the Languages in profile home page
-	Given I Loggin to the Mars web portal succesfully to delete languages
-	And I navigated to the profile home page 
-	When I Delete languages on the profile page
-	Then the record should be deleted
-	
-	
+		
 
-	Scenario Outline:Create Skills on the profile home page
-	Given I Loggin to the Mars web portal succesfully to create skills
-	And I navigate to the profile home page to create skills 
+	Scenario Outline: I succesfully login to the web portal to perfom CRUD operations for Skills
+	Given I Loggin to the Mars web portal succesfully to perform CRUD for skills
+	And I navigate to the profile home page to perform CRUD for skills
 	When I create Skills '<Skills>' on the profile page
-	Then I could see the created '<Skills>'
+	Then The skillsrecord should be able to create '<Skills>' 
+	When I update the Skills '<Updateskills>' on the profile home page
+	Then The skills record should be updated with '<Updateskills>' on th profile home page
+	When I delete the Skills on the profile home page
+	Then the Skills record should be deleted on the profile home page
 
 	Examples: 
-	| Skills   | 
-	| Painting | 
-	| Listening| 
-	Scenario Outline:Update Skills on the profile home page
-	Given I Loggin to the Mars web portal succesfully to update skills
-	And I navigated to profile home page to update skills
-	When I update the Skills '<Skills>' on the profile page
-	Then I could see the updated skills record '<Skills>'
-
-	Examples: 
-	| Skills   |
-	| Dancing  |
-	| Swimming |
-
-	Scenario: Delete the Skills in profile home page
-	Given I Loggin to the Mars web portal succesfully to delete skills
-	And I navigated to the profile home page to delete skills
-	When I Delete Skills on the profile page
-	Then the Skills record should be deleted
-
-	Scenario Outline:Create Education on the profile home page
-	Given I Loggin to the Mars web portal succesfully to create education
-	And I navigated to profile home page to create education
-	When I create the College and Degree '<College>','<Degree>' on the profile page
-	Then I could see the created'<College>','<Degree>'
-
-	Examples: 
-	| College | Degree        |
-	| ABC     | Post Graduate |
-	| XYZ     | Graduate      |
-
-	Scenario Outline:Update Education on the profile home page
-	Given I Loggin to the Mars web portal succesfully to update education
-	And I navigated to profile home page to update education
-	When I update the College and Degree '<College>','<Degree>' on the profile page
-	Then I could see the updated education record '<College>','<Degree>'
-
-	Examples: 
-	| College | Degree        |
-	| QWERTY  | Begginer      |
-	| EFG     | School        |
-
-	Scenario: Delete Education on profile home page
-	Given I Loggin to the Mars web portal succesfully to delete education
-	And I navigated to the profile home page to delete education
-	When I Delete Education record on the profile page
-	Then the Education record should be deleted
-
-	Scenario Outline: Create Certifications on the profile home page
-	Given I Loggin to the Mars web portal succesfully
-	And I navigated to profile home page
-	When I create the Certificates and Certified '<Certificate>','<Certified>' on the profile page
-	Then I could see the created record '<Certificate>','<Certified>'
-	Examples: 
-	| Certificate | Certified |
-	| Baking      | Bakers    |
-	| Swimming    | Athelet   |
-
-	Scenario Outline: Update Certifications on the profile home page
-	Given I Loggin to the Mars web portal succesfully
-	And I navigated to profile home page
-	When I update the Certificates and Certified '<Certificate>','<Certified>' on the profile page
-	Then I could see the updated certificates and certfied record '<Certificate>','<Certified>'
-
-	Examples: 
-	| Certificate | Certified  |
-	| Painting    | XYZ college|
-	| Dancing     | Studio     |
+	| Skills    | Updateskills |
+	| Painting  | Dancing      |
+	| Listening | Swimming     |
 	
-	Scenario: Delete Certifications on profile home page
-	Given I Loggin to the Mars web portal succesfully
-	And I navigated to the profile home page 
-	When I Delete Certifications record on the profile page
-	Then the Certifications and certified record should be deleted
+
+	Scenario Outline: I succesfully login to the web portal to perfom CRUD operations for Education
+	Given I Loggin to the Mars web portal succesfully to perform CRUD for Education
+	And I navigate to the profile home page to perform CRUD for Education
+	When I create College and Degree in Education '<College>','<Degree>' on the profile page
+	Then The Education record should be to create '<College>','<Degree>' 
+	When I update the College and Degree in Education '<updateCollege>','<updateDegree>' on the profile home page
+	Then The Education record should be updated '<updateCollege>','<updateDegree>' on th profile home page
+	When I delete the Education on the profile home page
+	Then the Education record should be deleted on the profile home page
+
+	Examples: 
+	| College | Degree        | updateCollege | updateDegree |
+	| ABC     | Post Graduate | QWERTY        | Begginer     |
+	| XYZ     | Graduate      | EFG           | School       |
+
+	
+
+	
+
+	

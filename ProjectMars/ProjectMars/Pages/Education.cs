@@ -76,7 +76,10 @@ namespace ProjectMars.Pages
         }
         public void UpdateEducation(IWebDriver driver, string qWERTY, string begginer)
         {
-            Wait.Waittobeclickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[6]/span[1]", 60);
+            IWebElement Educationbutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.top.attached.tabular.menu > a:nth-child(3)"));
+            Educationbutton.Click();
+
+            Wait.Waittobeclickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[6]/span[1]", 120);
 
             //Edit the Education on profie page
 
@@ -139,8 +142,12 @@ namespace ProjectMars.Pages
         }
         public void DeleteEducation(IWebDriver driver)
         {
-            Wait.Waittobeclickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[6]/span[2]", 60);
+            IWebElement Educationbutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.top.attached.tabular.menu > a:nth-child(3)"));
+            Educationbutton.Click();
 
+            Wait.Waittobeclickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[6]/span[2]", 120);
+
+            Thread.Sleep(3000);
             // delete the updated profile skills
 
             // search for delete button to delete updated Education on profile page
@@ -148,13 +155,17 @@ namespace ProjectMars.Pages
             IWebElement Educationdeltebutton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[6]/span[2]"));
             Educationdeltebutton.Click();
 
-
-
-
+                 
 
         }
 
+        public string GetDeletededucationrecord(IWebDriver driver)
+        {
 
+            IWebElement Educationrecord = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[2]"));
+            return Educationrecord.Text;
+
+        }
 
 
 

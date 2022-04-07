@@ -45,250 +45,163 @@ namespace ProjectMars.StepDefinitions
             string newactualname = homepageObj.Getactualname(driver);
         }
 
-        [Given(@"I Loggin to the Mars web portal succesfully")]
-        public void GivenILogginToTheMarsWebPortalSuccesfully()
+        [Given(@"I Loggin to the Mars web portal succesfully with valid credentials to perform CRUD")]
+        public void GivenILogginToTheMarsWebPortalSuccesfullyWithValidCredentialsToPerformCRUD()
         {
             driver = new ChromeDriver();
 
             loginpageObj.Loginsteps(driver);
         }
 
-        [When(@"I create languages '([^']*)' on the profile page")]
-        public void WhenICreateLanguagesOnTheProfilePage(string english)
+        [Given(@"I navigated to the profile home page to perform CRUD for languages")]
+        public void GivenINavigatedToTheProfileHomePageToPerformCRUDForLanguages()
         {
-            
+            homepageObj.Gotoprofilehomepage(driver);
+        }
+
+        [When(@"I create language '([^']*)' on the profile page")]
+        public void WhenICreateLanguageOnTheProfilePage(string english)
+        {
             LanguageObj.CreateLanguages(driver, english);
         }
 
-        [Then(@"the record should be created '([^']*)'")]
-        public void ThenTheRecordShouldBeCreated(string english)
+        [Then(@"The language record should be able to create '([^']*)'")]
+        public void ThenTheLanguageRecordShouldBeAbleToCreate(string english)
         {
             string newactualLanguage = LanguageObj.GetactualLanguage(driver);
-
         }
+              
 
-        [Given(@"I Loggin to the Mars web portal succesfully to update Languages")]
-        public void GivenILogginToTheMarsWebPortalSuccesfullyToUpdateLanguages()
+        [When(@"I update the languages '([^']*)' on the profile home page")]
+        public void WhenIUpdateTheLanguagesOnTheProfileHomePage(string hindi)
         {
-            driver = new ChromeDriver();
-
-            loginpageObj.Loginsteps(driver);
-        }
-
-        [When(@"I update languages '([^']*)' on the profile page")]
-        public void WhenIUpdateLanguagesOnTheProfilePage(string hindi)
-        {
-            
             LanguageObj.UpdateLanguages(driver, hindi);
         }
 
-        [Then(@"I could see the updated language record '([^']*)'")]
-        public void ThenICouldSeeTheUpdatedLanguageRecord(string hindi)
+        [Then(@"The language record should be updated with '([^']*)' on th profile home page")]
+        public void ThenTheLanguageRecordShouldBeUpdatedWithOnThProfileHomePage(string hindi)
         {
             string newactualupdatedLanguage = LanguageObj.GetactualupdatedLanguage(driver);
-
-        }
-        [Given(@"I Loggin to the Mars web portal succesfully to delete languages")]
-        public void GivenILogginToTheMarsWebPortalSuccesfullyToDeleteLanguages()
-        {
-            driver = new ChromeDriver();
-
-            loginpageObj.Loginsteps(driver);
         }
 
-
-        [When(@"I Delete languages on the profile page")]
-        public void WhenIDeleteLanguagesOnTheProfilePage()
+        [When(@"I delete the Languages on the profile home page")]
+        public void WhenIDeleteTheLanguagesOnTheProfileHomePage()
         {
-
             LanguageObj.DeleteLanguages(driver);
         }
 
-        [Then(@"the record should be deleted")]
-        public void ThenTheRecordShouldBeDeleted()
+        [Then(@"the language record should be deleted on the profile home page")]
+        public void ThenTheLanguageRecordShouldBeDeletedOnTheProfileHomePage()
         {
-            throw new PendingStepException();
+            string newupdatedrecord = LanguageObj.GetDeletedRecord(driver);
         }
 
-        
-        [Given(@"I Loggin to the Mars web portal succesfully to create skills")]
-        public void GivenILogginToTheMarsWebPortalSuccesfullyToCreateSkills()
+        [Given(@"I Loggin to the Mars web portal succesfully to perform CRUD for skills")]
+        public void GivenILogginToTheMarsWebPortalSuccesfullyToPerformCRUDForSkills()
         {
             driver = new ChromeDriver();
 
             loginpageObj.Loginsteps(driver);
-
         }
-        [Given(@"I navigate to the profile home page to create skills")]
-        public void GivenINavigateToTheProfileHomePageToCreateSkills()
+
+        [Given(@"I navigate to the profile home page to perform CRUD for skills")]
+        public void GivenINavigateToTheProfileHomePageToPerformCRUDForSkills()
         {
-            HomePage homepageObj = new HomePage();
             homepageObj.Gotoprofilehomepage(driver);
         }
 
-      
         [When(@"I create Skills '([^']*)' on the profile page")]
         public void WhenICreateSkillsOnTheProfilePage(string painting)
         {
-
             SkillsObj.CreateSkills(driver, painting);
         }
 
-        
-
-        [Then(@"I could see the created '([^']*)'")]
-        public void ThenICouldSeeTheCreated(string painting)
+        [Then(@"The skillsrecord should be able to create '([^']*)'")]
+        public void ThenTheSkillsrecordShouldBeAbleToCreate(string painting)
         {
             string newactualskill = SkillsObj.Getactualskill(driver);
-
         }
-        [Given(@"I Loggin to the Mars web portal succesfully to update skills")]
-        public void GivenILogginToTheMarsWebPortalSuccesfullyToUpdateSkills()
+                
+
+        [When(@"I update the Skills '([^']*)' on the profile home page")]
+        public void WhenIUpdateTheSkillsOnTheProfileHomePage(string dancing)
         {
-            driver = new ChromeDriver();
-
-            loginpageObj.Loginsteps(driver);
-
-        }
-        [Given(@"I navigated to profile home page to update skills")]
-        public void GivenINavigatedToProfileHomePageToUpdateSkills()
-        {
-            HomePage homepageObj = new HomePage();
-            homepageObj.Gotoprofilehomepage(driver);
-        }
-
-
-        [When(@"I update the Skills '([^']*)' on the profile page")]
-        public void WhenIUpdateTheSkillsOnTheProfilePage(string dancing)
-        {
-
             SkillsObj.Updateskills(driver, dancing);
         }
 
-        [Then(@"I could see the updated skills record '([^']*)'")]
-        public void ThenICouldSeeTheUpdatedSkillsRecord(string dancing)
+        [Then(@"The skills record should be updated with '([^']*)' on th profile home page")]
+        public void ThenTheSkillsRecordShouldBeUpdatedWithOnThProfileHomePage(string dancing)
         {
             string newactualupdatedskill = SkillsObj.Getactualupdatedskill(driver);
-
         }
+               
 
-        [Given(@"I Loggin to the Mars web portal succesfully to delete skills")]
-        public void GivenILogginToTheMarsWebPortalSuccesfullyToDeleteSkills()
+        [When(@"I delete the Skills on the profile home page")]
+        public void WhenIDeleteTheSkillsOnTheProfileHomePage()
         {
-            driver = new ChromeDriver();
-
-            loginpageObj.Loginsteps(driver);
-
-        }
-
-        [Given(@"I navigated to the profile home page to delete skills")]
-        public void GivenINavigatedToTheProfileHomePageToDeleteSkills()
-        {
-            HomePage homepageObj = new HomePage();
-            homepageObj.Gotoprofilehomepage(driver);
-        }
-
-        [When(@"I Delete Skills on the profile page")]
-        public void WhenIDeleteSkillsOnTheProfilePage()
-        {
-
             SkillsObj.Deleteskills(driver);
         }
 
-        [Then(@"the Skills record should be deleted")]
-        public void ThenTheSkillsRecordShouldBeDeleted()
+        [Then(@"the Skills record should be deleted on the profile home page")]
+        public void ThenTheSkillsRecordShouldBeDeletedOnTheProfileHomePage()
         {
-            HomePage homepageObj = new HomePage();
-            homepageObj.Gotoprofilehomepage(driver);
+            string newActualskillname = SkillsObj.GetDeletedskillsrecord(driver);
         }
 
-        [Given(@"I Loggin to the Mars web portal succesfully to create education")]
-        public void GivenILogginToTheMarsWebPortalSuccesfullyToCreateEducation()
+        [Given(@"I Loggin to the Mars web portal succesfully to perform CRUD for Education")]
+        public void GivenILogginToTheMarsWebPortalSuccesfullyToPerformCRUDForEducation()
         {
             driver = new ChromeDriver();
 
             loginpageObj.Loginsteps(driver);
-
         }
-        [Given(@"I navigated to profile home page to create education")]
-        public void GivenINavigatedToProfileHomePageToCreateEducation()
+
+        [Given(@"I navigate to the profile home page to perform CRUD for Education")]
+        public void GivenINavigateToTheProfileHomePageToPerformCRUDForEducation()
         {
-            HomePage homepageObj = new HomePage();
             homepageObj.Gotoprofilehomepage(driver);
         }
 
-
-        [When(@"I create the College and Degree '([^']*)','([^']*)' on the profile page")]
-        public void WhenICreateTheCollegeAndDegreeOnTheProfilePage(string aBC, string p1)
+        [When(@"I create College and Degree in Education '([^']*)','([^']*)' on the profile page")]
+        public void WhenICreateCollegeAndDegreeInEducationOnTheProfilePage(string aBC, string p1)
         {
-
             EducationObj.CreateEducation(driver, aBC, p1);
         }
 
-        [Then(@"I could see the created'([^']*)','([^']*)'")]
-        public void ThenICouldSeeTheCreated(string aBC, string p1)
+        [Then(@"The Education record should be to create '([^']*)','([^']*)'")]
+        public void ThenTheEducationRecordShouldBeToCreate(string aBC, string p1)
         {
+            
             string newuniversity = EducationObj.Getuniversity(driver);
-
-        }
-        [Given(@"I Loggin to the Mars web portal succesfully to update education")]
-        public void GivenILogginToTheMarsWebPortalSuccesfullyToUpdateEducation()
-        {
-            driver = new ChromeDriver();
-
-            loginpageObj.Loginsteps(driver);
-
-        }
-        [Given(@"I navigated to profile home page to update education")]
-        public void GivenINavigatedToProfileHomePageToUpdateEducation()
-        {
-            HomePage homepageObj = new HomePage();
-            homepageObj.Gotoprofilehomepage(driver);
         }
 
-        [When(@"I update the College and Degree '([^']*)','([^']*)' on the profile page")]
-        public void WhenIUpdateTheCollegeAndDegreeOnTheProfilePage(string qWERTY, string begginer)
+        [When(@"I update the College and Degree in Education '([^']*)','([^']*)' on the profile home page")]
+        public void WhenIUpdateTheCollegeAndDegreeInEducationOnTheProfileHomePage(string qWERTY, string begginer)
         {
-
             EducationObj.UpdateEducation(driver, qWERTY, begginer);
         }
 
-        [Then(@"I could see the updated education record '([^']*)','([^']*)'")]
-        public void ThenICouldSeeTheUpdatedEducationRecord(string qWERTY, string begginer)
+        [Then(@"The Education record should be updated '([^']*)','([^']*)' on th profile home page")]
+        public void ThenTheEducationRecordShouldBeUpdatedOnThProfileHomePage(string qWERTY, string begginer)
         {
             string newUpdateuniversity = EducationObj.GetUpdateuniversity(driver);
         }
 
-        [Given(@"I Loggin to the Mars web portal succesfully to delete education")]
-        public void GivenILogginToTheMarsWebPortalSuccesfullyToDeleteEducation()
+        [When(@"I delete the Education on the profile home page")]
+        public void WhenIDeleteTheEducationOnTheProfileHomePage()
         {
-            driver = new ChromeDriver();
-
-            loginpageObj.Loginsteps(driver);
-
-        }
-        [Given(@"I navigated to the profile home page to delete education")]
-        public void GivenINavigatedToTheProfileHomePageToDeleteEducation()
-        {
-           HomePage homepageObj = new HomePage();
-            homepageObj.Gotoprofilehomepage(driver);
-        }
-
-
-        [When(@"I Delete Education record on the profile page")]
-        public void WhenIDeleteEducationRecordOnTheProfilePage()
-        {
-
             EducationObj.DeleteEducation(driver);
         }
 
-        [Then(@"the Education record should be deleted")]
-        public void ThenTheEducationRecordShouldBeDeleted()
+        [Then(@"the Education record should be deleted on the profile home page")]
+        public void ThenTheEducationRecordShouldBeDeletedOnTheProfileHomePage()
         {
+            string newEducationrecord = EducationObj.GetDeletededucationrecord(driver);
 
         }
-        
+
 
         
+
     }
 }

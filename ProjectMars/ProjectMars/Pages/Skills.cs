@@ -47,7 +47,7 @@ namespace ProjectMars.Pages
             IWebElement AddSkillbutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > div > span > input.ui.teal.button"));
             AddSkillbutton.Click();
 
-            Wait.WaittobeVisible(driver, "CssSelector", "#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td.right.aligned > span:nth-child(1)", 30);
+            Wait.WaittobeVisible(driver, "CssSelector", "#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td.right.aligned > span:nth-child(1)", 120);
 
             // check if the record is created
 
@@ -62,16 +62,20 @@ namespace ProjectMars.Pages
         }
         public string Getactualskill(IWebDriver driver)
         {
-            IWebElement actualskill = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
+            IWebElement actualskill = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[1]"));
             return actualskill.Text;
         }
         public void Updateskills(IWebDriver driver, string dancing)
         {
-            Thread.Sleep(6000);
 
+
+            IWebElement Skillsbutton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[1]/a[2]"));
+            Skillsbutton.Click();
+
+            Wait.Waittobeclickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[3]/span[1]", 120);
             //search for Edit Skills button
 
-            IWebElement Editskillsbutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td.right.aligned > span:nth-child(1)"));
+            IWebElement Editskillsbutton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[3]/span[1]"));
             Editskillsbutton.Click();
 
             // search for Edit Skill level textbox
@@ -94,7 +98,7 @@ namespace ProjectMars.Pages
             IWebElement Updatebutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td > div > span > input.ui.teal.button"));
             Updatebutton.Click();
 
-            Wait.WaittobeVisible(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[3]/span[2]", 30);
+            Wait.WaittobeVisible(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[3]/span[2]", 120);
 
             // check if the record is created
 
@@ -109,15 +113,19 @@ namespace ProjectMars.Pages
         }
         public string Getactualupdatedskill(IWebDriver driver)
         {
-            IWebElement actualupdatedskill = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
+            IWebElement actualupdatedskill = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[1]"));
             return actualupdatedskill.Text;
 
         }
 
         public void Deleteskills(IWebDriver driver)
         {
-            Thread.Sleep(6000);
+            IWebElement Skillsbutton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[1]/a[2]"));
+            Skillsbutton.Click();
 
+            Wait.Waittobeclickable(driver, "XPath", "//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[1]/a[2]", 120);
+
+            Thread.Sleep(3000);
             // delete the updated profile skills
 
             // search for deletebutton for updated skills on profile page
@@ -125,20 +133,27 @@ namespace ProjectMars.Pages
             IWebElement skilldeltebutton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[3]/span[2]"));
             skilldeltebutton.Click();
 
+            
+
+
 
             //check if created record is presented in the table
 
-            //IWebElement Actualskillname = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr[last]/td[1]"));
+
 
             //Assertion
 
-            //Assert.That(Actualskillname.Text == "Cricket", "actual name do Not match the record");
+            //Assert.That(Actualskillname.Text != "Cricket", "actual name do Not match the record");
 
 
 
 
         }
-
+        public string GetDeletedskillsrecord(IWebDriver driver)
+        {
+            IWebElement Actualskillname = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr/td[1]"));
+            return Actualskillname.Text;
+        }
 
 
 

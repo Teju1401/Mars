@@ -120,12 +120,20 @@ namespace ProjectMars.Pages
             IWebElement Languagedeltebutton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[2]"));
             Languagedeltebutton.Click();
 
+            // check if the record is deleted successfully
+
+           
+
+            //Assertion
+
+            //Assert.That(updatedrecord.Text != "English", "record hasent been deleted.");
 
 
-
-
-
-
+        }
+        public string GetDeletedRecord(IWebDriver driver)
+        {
+            IWebElement updatedrecord = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[1]"));
+            return updatedrecord.Text;
         }
 
 
