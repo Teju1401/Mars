@@ -13,7 +13,7 @@ namespace ProjectMars.Pages
 {
     public class Languages
     {
-        public void CreateLanguages(IWebDriver driver, string english)
+        public void CreateLanguages(IWebDriver driver, string Language1)
         {
             Thread.Sleep(6000);
             //check if seller can add Languages
@@ -32,7 +32,7 @@ namespace ProjectMars.Pages
 
             IWebElement AddLanguagetextbox = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.active.tooltip-target > div > div.twelve.wide.column.scrollTable > div > div > div:nth-child(1) > input[type=text]"));
             AddLanguagetextbox.Click();
-            AddLanguagetextbox.SendKeys(english);
+            AddLanguagetextbox.SendKeys(Language1);
 
             //Select choose language level dropbox
 
@@ -66,7 +66,7 @@ namespace ProjectMars.Pages
             
         }
 
-        public void UpdateLanguages(IWebDriver driver, string hindi)
+        public void UpdateLanguages(IWebDriver driver, string Language2)
         {
             Thread.Sleep(6000);
 
@@ -82,7 +82,7 @@ namespace ProjectMars.Pages
             IWebElement EditLanguagestextbox = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.active.tooltip-target > div > div.twelve.wide.column.scrollTable > div > table > tbody > tr > td > div > div:nth-child(1) > input[type=text]"));
             EditLanguagestextbox.Click();
             EditLanguagestextbox.Clear();
-            EditLanguagestextbox.SendKeys(hindi);
+            EditLanguagestextbox.SendKeys(Language2);
 
             //Edit Language Level
 

@@ -116,7 +116,19 @@ namespace ProjectMars.Test
             Education EducationObj = new Education();
             EducationObj.DeleteEducation(driver);
         }
-        
+        [Test, Order(10)]
+        public void CreateCertifications_Test_Profile()
+        {
+            //home page object initialization and definition
+            HomePage homepageObj = new HomePage();
+            homepageObj.Gotoprofilehomepage(driver);
+
+            Certifications CertificationsObj = new Certifications();
+            CertificationsObj.CreateCertifications(driver, "Certificate", "Certified");
+
+
+
+        }
 
     }
 }

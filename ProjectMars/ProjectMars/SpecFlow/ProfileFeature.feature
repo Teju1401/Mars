@@ -60,6 +60,19 @@ Scenario: I logged into the Mars web portal and navigated to profile home page
 	| ABC     | Post Graduate | QWERTY        | Begginer     |
 	| XYZ     | Graduate      | EFG           | School       |
 
+
+
+
+	Scenario Outline: I succesfully login to the mars web portal to create Certifications page
+	Given I Loggin to the Mars web portal succesfully to create Certifications page
+	And I navigate to the profile home page to create Certifications
+	When I create Certificate and certified from in Certifications '<Certificate>','<certified>' on the profile page
+	Then The Certifications record should be to create '<Certificate>','<certified>' 
+	
+	Examples: 
+	| Certificate | certified | 
+	| BAKING	  | BAKERS    | 
+	
 	
 
 	

@@ -12,7 +12,7 @@ namespace ProjectMars.Pages
 {
     public class Education
     {
-        public void CreateEducation(IWebDriver driver, string aBC, string p1)
+        public void CreateEducation(IWebDriver driver, string College, string Degree)
         {
             //check if seller can add Education
 
@@ -30,7 +30,7 @@ namespace ProjectMars.Pages
 
             IWebElement AddCollegetextbox = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > div > div:nth-child(1) > div.ten.wide.field > input[type=text]"));
             AddCollegetextbox.Click();
-            AddCollegetextbox.SendKeys(aBC);
+            AddCollegetextbox.SendKeys(College);
 
 
             //Select Country of college dropbox
@@ -46,7 +46,7 @@ namespace ProjectMars.Pages
 
             IWebElement Degreetextbox = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.bottom.attached.tab.segment.tooltip-target.active > div > div.twelve.wide.column.scrollTable > div > div > div:nth-child(2) > div:nth-child(2) > input[type=text]"));
             Degreetextbox.Click();
-            Degreetextbox.SendKeys(p1);
+            Degreetextbox.SendKeys(Degree);
 
             //search for year of graduate dropbox
 
@@ -75,7 +75,7 @@ namespace ProjectMars.Pages
             IWebElement university = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td[2]"));
             return university.Text;
         }
-        public void UpdateEducation(IWebDriver driver, string qWERTY, string begginer)
+        public void UpdateEducation(IWebDriver driver, string College1, string Degree1)
         {
             IWebElement Educationbutton = driver.FindElement(By.CssSelector("#account-profile-section > div > section:nth-child(3) > div > div > div > div.eight.wide.column > form > div.ui.top.attached.tabular.menu > a:nth-child(3)"));
             Educationbutton.Click();
@@ -96,7 +96,7 @@ namespace ProjectMars.Pages
             IWebElement EditEducationtextbox = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td/div[1]/div[1]/input"));
             EditEducationtextbox.Click();
             EditEducationtextbox.Clear();
-            EditEducationtextbox.SendKeys(qWERTY);
+            EditEducationtextbox.SendKeys(College1);
 
             //Edit Country Level
 
@@ -113,7 +113,7 @@ namespace ProjectMars.Pages
             IWebElement EditDegreetextbox = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[4]/div/div[2]/div/table/tbody/tr/td/div[2]/div[2]/input"));
             EditDegreetextbox.Click();
             EditDegreetextbox.Clear();
-            EditDegreetextbox.SendKeys(begginer);
+            EditDegreetextbox.SendKeys(Degree1);
 
             //Edit graduate dropbox
 

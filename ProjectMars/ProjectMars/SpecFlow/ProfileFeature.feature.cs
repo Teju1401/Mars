@@ -260,6 +260,43 @@ this.ScenarioInitialize(scenarioInfo);
             }
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("I succesfully login to the mars web portal to create Certifications page")]
+        [NUnit.Framework.TestCaseAttribute("BAKING", "BAKERS", null)]
+        public void ISuccesfullyLoginToTheMarsWebPortalToCreateCertificationsPage(string certificate, string certified, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Certificate", certificate);
+            argumentsOfScenario.Add("certified", certified);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I succesfully login to the mars web portal to create Certifications page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 66
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 67
+ testRunner.Given("I Loggin to the Mars web portal succesfully to create Certifications page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 68
+ testRunner.And("I navigate to the profile home page to create Certifications", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 69
+ testRunner.When(string.Format("I create Certificate and certified from in Certifications \'{0}\',\'{1}\' on the prof" +
+                            "ile page", certificate, certified), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 70
+ testRunner.Then(string.Format("The Certifications record should be to create \'{0}\',\'{1}\'", certificate, certified), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

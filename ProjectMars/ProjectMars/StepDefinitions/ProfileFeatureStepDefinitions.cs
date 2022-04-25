@@ -17,6 +17,7 @@ namespace ProjectMars.StepDefinitions
         Languages LanguageObj = new Languages();
         Skills SkillsObj = new Skills();
         Education EducationObj = new Education();
+        Certifications CertificationsObj = new Certifications();
 
         [Given(@"Loggin to the Mars web portal with valid credentials")]
         public void GivenLogginToTheMarsWebPortalWithValidCredentials()
@@ -62,30 +63,30 @@ namespace ProjectMars.StepDefinitions
         }
 
         [When(@"I create language '([^']*)' on the profile page")]
-        public void WhenICreateLanguageOnTheProfilePage(string english)
+        public void WhenICreateLanguageOnTheProfilePage(string Language1)
         {
-            LanguageObj.CreateLanguages(driver, english);
+            LanguageObj.CreateLanguages(driver, Language1);
         }
 
         [Then(@"The language record should be able to create '([^']*)'")]
-        public void ThenTheLanguageRecordShouldBeAbleToCreate(string english)
+        public void ThenTheLanguageRecordShouldBeAbleToCreate(string Language1)
         {
             string newactualLanguage = LanguageObj.GetactualLanguage(driver);
-            Assert.That(newactualLanguage == english, "actual Language and expexted Language donot match");
+            Assert.That(newactualLanguage == Language1, "actual Language and expexted Language donot match");
         }
               
 
         [When(@"I update the languages '([^']*)' on the profile home page")]
-        public void WhenIUpdateTheLanguagesOnTheProfileHomePage(string hindi)
+        public void WhenIUpdateTheLanguagesOnTheProfileHomePage(string Language2)
         {
-            LanguageObj.UpdateLanguages(driver, hindi);
+            LanguageObj.UpdateLanguages(driver, Language2);
         }
 
         [Then(@"The language record should be updated with '([^']*)' on th profile home page")]
-        public void ThenTheLanguageRecordShouldBeUpdatedWithOnThProfileHomePage(string hindi)
+        public void ThenTheLanguageRecordShouldBeUpdatedWithOnThProfileHomePage(string Language2)
         {
             string newactualupdatedLanguage = LanguageObj.GetactualupdatedLanguage(driver);
-            Assert.That(newactualupdatedLanguage == hindi, "actual updated Language and expexted updated Language donot match");
+            Assert.That(newactualupdatedLanguage == Language2, "actual updated Language and expexted updated Language donot match");
         }
 
         [When(@"I delete the Languages on the profile home page")]
@@ -116,30 +117,30 @@ namespace ProjectMars.StepDefinitions
         }
 
         [When(@"I create Skills '([^']*)' on the profile page")]
-        public void WhenICreateSkillsOnTheProfilePage(string painting)
+        public void WhenICreateSkillsOnTheProfilePage(string skill1)
         {
-            SkillsObj.CreateSkills(driver, painting);
+            SkillsObj.CreateSkills(driver, skill1);
         }
 
         [Then(@"The skillsrecord should be able to create '([^']*)'")]
-        public void ThenTheSkillsrecordShouldBeAbleToCreate(string painting)
+        public void ThenTheSkillsrecordShouldBeAbleToCreate(string skill1)
         {
             string newactualskill = SkillsObj.Getactualskill(driver);
-            Assert.That(newactualskill == painting, "actualskill and expexted skill donot match");
+            Assert.That(newactualskill == skill1, "actualskill and expexted skill donot match");
         }
                 
 
         [When(@"I update the Skills '([^']*)' on the profile home page")]
-        public void WhenIUpdateTheSkillsOnTheProfileHomePage(string dancing)
+        public void WhenIUpdateTheSkillsOnTheProfileHomePage(string Skill2)
         {
-            SkillsObj.Updateskills(driver, dancing);
+            SkillsObj.Updateskills(driver, Skill2);
         }
 
         [Then(@"The skills record should be updated with '([^']*)' on th profile home page")]
-        public void ThenTheSkillsRecordShouldBeUpdatedWithOnThProfileHomePage(string dancing)
+        public void ThenTheSkillsRecordShouldBeUpdatedWithOnThProfileHomePage(string Skill2)
         {
             string newactualupdatedskill = SkillsObj.Getactualupdatedskill(driver);
-            Assert.That(newactualupdatedskill == dancing, "actualskill and expexted skill donot match");
+            Assert.That(newactualupdatedskill == Skill2, "actualskill and expexted skill donot match");
         }
                
 
@@ -171,30 +172,30 @@ namespace ProjectMars.StepDefinitions
         }
 
         [When(@"I create College and Degree in Education '([^']*)','([^']*)' on the profile page")]
-        public void WhenICreateCollegeAndDegreeInEducationOnTheProfilePage(string aBC, string p1)
+        public void WhenICreateCollegeAndDegreeInEducationOnTheProfilePage(string College, string Degree)
         {
-            EducationObj.CreateEducation(driver, aBC, p1);
+            EducationObj.CreateEducation(driver, College, Degree);
         }
 
         [Then(@"The Education record should be to create '([^']*)','([^']*)'")]
-        public void ThenTheEducationRecordShouldBeToCreate(string aBC, string p1)
+        public void ThenTheEducationRecordShouldBeToCreate(string College, string Degree)
         {
             
             string newuniversity = EducationObj.Getuniversity(driver);
-            Assert.That(newuniversity == aBC, "actual university name and expexted university name donot match");
+            Assert.That(newuniversity == College, "actual university name and expexted university name donot match");
         }
 
         [When(@"I update the College and Degree in Education '([^']*)','([^']*)' on the profile home page")]
-        public void WhenIUpdateTheCollegeAndDegreeInEducationOnTheProfileHomePage(string qWERTY, string begginer)
+        public void WhenIUpdateTheCollegeAndDegreeInEducationOnTheProfileHomePage(string College1, string Degree1)
         {
-            EducationObj.UpdateEducation(driver, qWERTY, begginer);
+            EducationObj.UpdateEducation(driver, College1, Degree1);
         }
 
         [Then(@"The Education record should be updated '([^']*)','([^']*)' on th profile home page")]
-        public void ThenTheEducationRecordShouldBeUpdatedOnThProfileHomePage(string qWERTY, string begginer)
+        public void ThenTheEducationRecordShouldBeUpdatedOnThProfileHomePage(string College1, string Degree1)
         {
             string newUpdateuniversity = EducationObj.GetUpdateuniversity(driver);
-            Assert.That(newUpdateuniversity == qWERTY, "actual university name and expexted university name donot match");
+            Assert.That(newUpdateuniversity == College1, "actual university name and expexted university name donot match");
         }
 
         [When(@"I delete the Education on the profile home page")]
@@ -211,8 +212,41 @@ namespace ProjectMars.StepDefinitions
 
         }
 
+        [Given(@"I Loggin to the Mars web portal succesfully to create Certifications page")]
+        public void GivenILogginToTheMarsWebPortalSuccesfullyToCreateCertificationsPage()
+        {
+            driver = new ChromeDriver();
 
-        
+            loginpageObj.Loginsteps(driver);
+        }
+
+        [Given(@"I navigate to the profile home page to create Certifications")]
+        public void GivenINavigateToTheProfileHomePageToCreateCertifications()
+        {
+            homepageObj.Gotoprofilehomepage(driver);
+        }
+
+        [When(@"I create Certificate and certified from in Certifications '([^']*)','([^']*)' on the profile page")]
+        public void WhenICreateCertificateAndCertifiedFromInCertificationsOnTheProfilePage(string Certificate, string Certified)
+        {
+            CertificationsObj.CreateCertifications(driver, Certificate, Certified);
+        }
+
+        [Then(@"The Certifications record should be to create '([^']*)','([^']*)'")]
+        public void ThenTheCertificationsRecordShouldBeToCreate(string Certificate, string Certified)
+        {
+            string newCertificationsrecord = CertificationsObj.Getrecord(driver);
+
+            Assert.That(newCertificationsrecord == Certificate, "the record is not created");
+
+                
+
+
+        }
+
+
+
+
 
     }
 }
