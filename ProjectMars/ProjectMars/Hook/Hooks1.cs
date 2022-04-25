@@ -23,7 +23,10 @@ namespace ProjectMars.Hook
             LoginPage loginpageObj = new LoginPage();
             loginpageObj.Loginsteps(driver);
 
-            
+            HomePage homepageObj = new HomePage();
+            homepageObj.Gotoprofilehomepage(driver);
+                      
+
 
         }
 
